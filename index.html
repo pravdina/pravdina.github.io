@@ -6,12 +6,7 @@
 
 <body style='margin : 0px; overflow: scroll;'>
   <a-scene embedded arjs>
-    <!-- define your gltf asset -->
-  <a-assets>
-    <a-asset-item id="tree" src="assets/asset.glb"></a-asset-item>
-  </a-assets>
-  <!-- use your gltf model -->
-  <a-entity gltf-model="##tree"></a-entity>
+    <a-sphere position="0 0.5 0" radius="1.25" color="#EF2D5E"></a-sphere>
     <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
 </body>
