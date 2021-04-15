@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style type="text/css">
+		.cost{
+			/*background-color: red;*/
+		}
+		.container{
+			margin: 0 50px;
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-column-gap: 50px;
+		}
+		.zakaz{
+			grid-column-start: 3;
+		}
+		#form{
+			grid-column-start: 2;
+			grid-row-start: 2;
+		}
+		th{
+			text-align: left;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>Таблица товаров</h3>
+		<h3>Добавить товар в ручную</h3>
+		<div style="display: flex; align-items: center;">
+			<h3>Ваш заказ</h3><input type="button" style = "margin-left: 45px" value="Очистить" onclick="clearTable()">
+		</div>
+
+		<div class="priceList">
+			<table border="1" id="priceListTable">
+				<tr>
+					<th><input type="checkbox" class="check" style="display: none"></th>
+					<th>Наименование</th>
+					<th>Стоимость</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox" class="check"></th>
+					<th>Баклажан</th>
+					<th>40</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox" class="check"></th>
+					<th>Морковь</th>
+					<th>10</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox" class="check"></th>
+					<th>Картофель</th>
+					<th>16</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox" class="check"></th>
+					<th>Свекла</th>
+					<th>27</th>
+				</tr>
+				<tr>
+					<th><input type="checkbox" class="check"></th>
+					<th>Кабачек</th>
+					<th>50</th>
+				</tr>
+			</table>	
+			<br>
+			<input type="button" value="Добавить в таблицу заказа" onclick="addRowFromTable()">		
+		</div>
+
+		<form id = "form">
+		  <p><b>Наименование:</b><br>
+		   <input type="text" size="40" id='name'>
+		  </p>
+		  <p><b>Стоимость:</b><Br>
+		  	<input type="text" size="40" id='cost'>
+		  </p>
+		  <input type="button" value="Добавить" onclick="addRowByHand()">
+		  <input type="reset" value="Очистить">
+		</form>
+
+
+		<div class="zakaz">
+			<table border="1" id="table">
+			<tr>
+				<th>Наименование</th>
+				<th>Стоимость</th>
+			</tr>
+		</table>
+		<br>
+		<input type="button" value="Расчитать стоимость" onclick="vsego()">
+		<div id="summa"></div>
+		</div>
+	</div>	
+
+	<script type="text/javascript">
+		function addRowByHand(){
+			var name = document.getElementById('name').value
+			var cost = document.getElementById('cost').value
+			addRow(name, cost)
+
+		}
+		function addRowFromTable(){
+
+			rowList= document.getElementById("priceListTable").getElementsByTagName("tr")
+
+			for (var i=0; i< rowList.length; ++i)
+			{
+				if (rowList[i].getElementsByTagName("th")[0].getElementsByTagName("input")[0].checked){
+					name = rowList[i].getElementsByTagName("th")[1].innerHTML
+					cost = rowList[i].getElementsByTagName("th")[2].innerHTML
+					addRow(name, cost)
+				}
+				rowList[i].getElementsByTagName("th")[0].getElementsByTagName("input")[0].checked = false
+			};
+		}
+		function addRow(name, cost){
+			
+			var table = document.getElementById('table')
+
+			var row = document.createElement("TR")
+		    var td1 = document.createElement("TD")
+		    td1.appendChild(document.createTextNode(name))
+		    var td2 = document.createElement("TD")
+		    td2.className = "cost";
+
+		    td2.addEventListener("mouseover", function(){ td2.style.backgroundColor = "#FF8C64" })
+		    td2.addEventListener("mouseout", function(){ td2.style.backgroundColor = "white" })
+
+		    td2.appendChild (document.createTextNode(cost))
+		    row.appendChild(td1);
+		    row.appendChild(td2);
+
+		    table.appendChild(row);
+
+		    document.getElementById('form').reset();
+
+		}
+		function vsego(){
+			var item = document.getElementsByClassName("cost");
+			s = 0
+			for (var i = item.length - 1; i >= 0; i--) {
+				s += parseInt(item[i].innerHTML);
+			}
+			// console.log(s)
+			document.getElementById('summa').innerHTML = "Сумма заказа: " + s;
+		}
+		function clearTable(){
+			var table = document.getElementById('table')
+			table.innerHTML = "<tr><th>Наименование</th><th>Стоимость</th></tr>"
+			document.getElementById('summa').innerHTML = ""
+		}
+	</script>
+</body>
+</html>
