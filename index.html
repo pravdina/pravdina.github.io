@@ -96,12 +96,17 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-text
+<!--       <a-text
         value="This content will always face you."
         look-at="[gps-camera]"
         scale="120 120 120"
         gps-entity-place="latitude: 49.559572; longitude: 39.111280;"
-      ></a-text>
+      ></a-text> -->
+      <a-entity
+        gltf-model="https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf"
+        gps-entity-place="latitude: 49.559572; longitude: 39.111280;"
+      >
+      </a-entity>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
