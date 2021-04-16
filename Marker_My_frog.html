@@ -19,9 +19,11 @@
                         <a-asset-item id="ship-mtl" src="models/cube.mtl"></a-asset-item>
                 </a-assets>
                 <!-- Using the asset management system. -->
-                <a-entity obj-model="obj: #ship-obj; mtl: #ship-mtl"></a-entity>
+                  <a-marker preset="hiro">
+                    <a-entity obj-model="obj: #ship-obj; mtl: #ship-mtl"></a-entity>
+                  </a-marker>
                 <!-- <a-marker-camera type='pattern' url ='img/pattern-dino2.patt'></a-marker-camera> -->
-                <a-marker-camera preset="hiro"></a-marker-camera>
+                <a-entity camera></a-entity>
         </a-scene>
   </body>
 </html>
