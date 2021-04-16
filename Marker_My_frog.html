@@ -1,31 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <html>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <body style="margin : 0px; overflow: hidden;">
-<!--     <a-scene embedded arjs>
-      <a-marker preset="hiro">
-        <a-entity
-          obj-model="obj: url('models/cube.obj'); mtl: url('models/cube.mtl')"
-        ></a-entity>
+
+<script src=”https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src=”https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs='sourceType: webcam;'>
+      <a-marker preset='hiro'>
+        <!-- Adding an OBJ file to an AR Project-->
+        <a-entity 
+            obj-model='obj: url(models/cube.obj); 
+            mtl: url(models/cube.mtl)'>
+        </a-entity>
+              
       </a-marker>
-      <a-entity camera></a-entity>
-    </a-scene> -->
-            <a-scene embedded arjs>
-                <a-assets>
-                        <a-asset-item id="ship-obj" src="models/cube.obj"></a-asset-item>
-                        <a-asset-item id="ship-mtl" src="models/cube.mtl"></a-asset-item>
-                </a-assets>
-                <!-- Using the asset management system. -->
-                  <a-marker preset="hiro">
-                    <a-entity obj-model="obj: #ship-obj; mtl: #ship-mtl"></a-entity>
-                  </a-marker>
-                <!-- <a-marker-camera type='pattern' url ='img/pattern-dino2.patt'></a-marker-camera> -->
-                <a-entity camera></a-entity>
-        </a-scene>
-  </body>
+  <a-entity camera>
+  </a-entity>
+  </a-scene>
+</body>
 </html>
 
 <!-- obj-model="obj: url('models/frog.obj'); mtl: url('models/frog.mtl')" -->
