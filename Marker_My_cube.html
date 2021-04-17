@@ -8,18 +8,6 @@
     <a-scene embedded arjs>
 
       <a-assets>
-        <a-asset-item id="frog_obj" src="models/frog.obj"></a-asset-item>
-        <a-asset-item id="frog_mtl" src="models/frog.mtl"></a-asset-item>
-      </a-assets>
-      <a-marker preset="hiro">
-        <a-entity
-          position="0 0 0"
-          scale="0.5 0.5 0.5"
-          obj-model="obj: #frog_obj; mtl: #frog_mtl"
-        ></a-entity>
-      </a-marker>
-
-<!--       <a-assets>
         <a-asset-item id="cube_obj" src="models/cube.obj"></a-asset-item>
         <a-asset-item id="cube_mtl" src="models/cube.mtl"></a-asset-item>
       </a-assets>
@@ -29,20 +17,7 @@
           scale="0.5 0.5 0.5"
           obj-model="obj: #cube_obj; mtl: #cube_mtl"
         ></a-entity>
-      </a-marker> -->
-
-
-
-
-
-      <!-- <a-marker preset="hiro">
-        <a-entity
-          position="0 0 0"
-          scale="0.05 0.05 0.05"
-          gltf-model="url(models/pink.glb)"
-        ></a-entity>
-      </a-marker> -->
-
+      </a-marker>
 
       <a-entity camera></a-entity>
     </a-scene>
