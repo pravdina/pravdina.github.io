@@ -1,23 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <html>
-
-<script src=”https://aframe.io/releases/0.6.1/aframe.min.js"></script>
-<script src=”https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-
-<body style='margin : 0px; overflow: hidden;'>
-  <a-scene embedded arjs='sourceType: webcam;'>
-      <a-marker preset='hiro'>
-        <!-- Adding an OBJ file to an AR Project-->
-        <a-entity 
-            obj-model='obj: url(models/cube.obj); mtl: url(models/cube.mtl)'>
-        </a-entity>
-              
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+      <a-marker preset="hiro">
+        <a-entity
+          position="0 0 0"
+          scale="0.05 0.05 0.05"
+          gltf-model="url(models/pink.glb)"
+        ></a-entity>
       </a-marker>
-  <a-entity camera>
-  </a-entity>
-  </a-scene>
-</body>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
 </html>
-
-<!-- obj-model="obj: url('models/frog.obj'); mtl: url('models/frog.mtl')" -->
