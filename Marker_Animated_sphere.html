@@ -11,7 +11,10 @@
         <a-asset-item id="sphere" src="models/sphere.glb"></a-asset-item>
       </a-assets>
       <a-marker preset="hiro">
-        <a-entity gltf-model="#sphere" scale="0.2 0.2 0.2"
+        <a-entity 
+        gltf-model="#sphere" 
+        scale="0.2 0.2 0.2"
+        animation-mixer="clip: SphereAction"
         ></a-entity>
       </a-marker>
       <a-entity camera></a-entity>
