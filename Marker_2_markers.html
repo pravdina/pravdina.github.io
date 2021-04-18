@@ -9,6 +9,8 @@
     <a-scene embedded arjs>
       <a-assets>
         <a-asset-item id="sphere" src="models/sphere.glb"></a-asset-item>
+        <a-asset-item id="cube_obj" src="models/cube.obj"></a-asset-item>
+        <a-asset-item id="cube_mtl" src="models/cube.mtl"></a-asset-item>
       </a-assets>
       <a-marker preset="hiro">
         <a-entity 
@@ -25,7 +27,7 @@
           obj-model="obj: #cube_obj; mtl: #cube_mtl"
         ></a-entity>
       </a-marker>
-      
+
       <a-entity camera></a-entity>
     </a-scene>
   </body>
