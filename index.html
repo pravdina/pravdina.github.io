@@ -7,7 +7,7 @@
 
 <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
 
-<style>
+<!-- <style>
   .arjs-loader {
     height: 100%;
     width: 100%;
@@ -26,12 +26,12 @@
     font-size: 1.25em;
     color: white;
   }
-</style>
+</style> -->
 
 <!-- rawgithack development URL -->
 <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
 </head>
-<!-- <body>
+<body>
   <form>
     <input type="button" value="Marker_Dino_Doc" onClick='location.href="Marker_Dino_Doc.html"'>
     <input type="button" value="Image_Dino_Doc3" onClick='location.href="Image_Dino_Doc.html"'>
@@ -46,11 +46,10 @@
     <input type="button" value="Marker_2_markers1" onClick='location.href="Marker_2_markers.html"'>
     <input type="button" value="Image_Video3" onClick='location.href="Image_Video.html"'>
   </form>
-</body> -->
+</body>
 
 
-<body style='margin : 0px; overflow: hidden;'>
-   <!-- minimal loader shown until image descriptors are loaded -->
+<!-- <body style='margin : 0px; overflow: hidden;'>
   <div class="arjs-loader">
     <div>Loading, please wait2...</div>
   </div>
@@ -59,7 +58,6 @@
         renderer="logarithmicDepthBuffer: true;"
         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;'>
 
-        <!-- use rawgithack to retrieve the correct url for nft marker (see 'trex' below) -->
         <a-nft
             type='nft' url='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/trex-image/trex'
             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
@@ -72,5 +70,5 @@
         </a-nft>
     <a-entity camera></a-entity>
     </a-scene>
-</body>
+</body> -->
 </html>
