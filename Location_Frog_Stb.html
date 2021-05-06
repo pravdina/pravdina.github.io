@@ -15,12 +15,19 @@
       embedded
       arjs="sourceType: webcam; debugUIEnabled: false;"
     >
-      <a-text
-        value="Vladislav-kakashulka"
-        look-at="[gps-camera]"
-        scale="120 120 120"
-        gps-entity-place="latitude: 48.379433 ; longitude: 31.16558;"
-      ></a-text>
+      <a-entity
+      id="frog"
+      gltf-model="#frog"
+
+      look-at="[gps-camera]"
+      scale="120 120 120"
+      gps-entity-place="latitude: 48.379433 ; longitude: 31.16558;"
+
+      scale="5 5 5"
+      animation-mixer="clip: Armature|mixamo.com|Layer0"
+      class="clickable"
+      gesture-handler="minScale: 1; maxScale: 200"
+      >
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
   </body>
