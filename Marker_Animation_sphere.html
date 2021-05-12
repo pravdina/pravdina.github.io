@@ -7,14 +7,14 @@
       <img id='earth' src='https://raw.githubusercontent.com/aframevr/sample-assets/master/assets/images/space/earth_atmos_4096.jpg' />
     </a-assets>
 
-    <a-anchor hit-testing-enabled='true'>
+    <a-marker preset="hiro">
       <a-entity rotation="90 0 0">
         <a-sphere material='src: #earth;' position="0 0.5 0" radius="1" segments-height="53">
           <a-animation attribute="rotation" dur="7000" to="0 360 0" easing="linear" repeat="indefinite">
           </a-animation>
         </a-sphere>
       </a-entity>
-    </a-anchor>
-    <a-camera-static/>
+    </a-marker>
+    <a-entity camera></a-entity>
   </a-scene>
 </body>
