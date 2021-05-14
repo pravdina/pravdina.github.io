@@ -13,7 +13,9 @@
           // here you can change also a-scene or a-entity properties, like
           // changing your 3D model source, size, position and so on
           // or you can just open links, trigger actions...
-          alert("Hi there!");
+          document
+        .querySelector("#main_model").setAttribute("gltf-model", "cone_elipse");
+          // alert("Hi there!");
         });
     };
   </script>
@@ -65,7 +67,7 @@
     id="markerA"
   >
     <a-entity
-      id="cone_whole"
+      id="main_model"
       gltf-model="#cone_whole"
       position="0 0 0"
       scale="1 1 1"
