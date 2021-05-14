@@ -8,11 +8,11 @@
   <script>
     window.onload = function () {
       document
-        .querySelector(".say-hi-button")
+        .getElementById("button")
         .addEventListener("click", function () {
           document
         .getElementById("main_model")
-        .setAttribute("position", "0 0 5");
+        .setAttribute("gltf-model", "#cone_elipse");
           // alert("Hi there!");
         });
     };
@@ -42,7 +42,7 @@
   </style>
   <body style="margin : 0px; overflow: hidden;">
     <div class="buttons">
-      <button class="say-hi-button">SAY HI!</button>
+      <button id="button">Elipse</button>
     </div>
 <a-scene
   arjs
