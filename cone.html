@@ -8,12 +8,18 @@
   <script>
     window.onload = function () {
       document
-        .getElementById("button")
+        .getElementById("cone_elipse")
         .addEventListener("click", function () {
           document
-        .getElementById("main_model")
-        .setAttribute("gltf-model", "models/1_cone_elipse.glb");
-          // alert(document.getElementById("main_model").getAttribute("gltf-model"));
+            .getElementById("main_model")
+            .setAttribute("gltf-model", "models/1_cone_elipse.glb");
+        });
+      document
+        .getElementById("cone_circule")
+        .addEventListener("click", function () {
+          document
+            .getElementById("main_model")
+            .setAttribute("gltf-model", "models/1_cone_circule.glb");
         });
     };
   </script>
@@ -42,7 +48,8 @@
   </style>
   <body style="margin : 0px; overflow: hidden;">
     <div class="buttons">
-      <button id="button">Elipse</button>
+      <button id="cone_elipse">Elipse</button>
+      <button id="cone_circule">Circule</button>
     </div>
 <a-scene
   arjs
