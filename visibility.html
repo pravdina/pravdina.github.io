@@ -64,6 +64,7 @@
     >
     <a-assets>
       <a-asset-item id="down" src="models/planes_animation_down.glb"></a-asset-item>
+      <a-asset-item id="frog" src="models/twist.glb"></a-asset-item>
     </a-asset-item>
   </a-assets>
   <a-marker
@@ -82,7 +83,16 @@
   gesture-handler="minScale: 0.1; maxScale: 20"
   >
   </a-entity>
-  <a-box position="5 5 5" color="tomato"></a-box>
+      <a-entity
+      id="frog"
+      gltf-model="#frog"
+      position="0 0 0"
+      scale="5 5 5"
+      animation-mixer="clip: Armature|mixamo.com|Layer0"
+      class="clickable"
+      gesture-handler="minScale: 0.1; maxScale: 20"
+    >
+    </a-entity>
   </a-marker>
   <a-entity camera></a-entity>
   </a-scene>
