@@ -13,7 +13,7 @@
         .addEventListener("click", function () {
           document
             .getElementById("planes")
-            .setAttribute("animation-mixer", "clip: Plane*; loop: once; clampWhenFinished: false");
+            .setAttribute("animation-mixer", "clip: Plane*; clampWhenFinished: true; repetitions:1");
         });
         document
         .getElementById("animation_reverse")
