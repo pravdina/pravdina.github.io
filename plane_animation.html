@@ -18,9 +18,9 @@
         document
         .getElementById("animation_reverse")
         .addEventListener("click", function () {
-          document
-            .getElementById("planes")
-            .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
+          document.getElementById("planes").removeAttribute("animation-mixer"); 
+
+          document.getElementById("planes").setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
         });
     };
   </script>
