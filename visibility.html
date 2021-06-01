@@ -1,98 +1,14 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <html>
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-  <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-  <script>
-    window.onload = function () {
-      document
-      .getElementById("animation")
-      .addEventListener("click", function () {
-        document
-          .getElementById("planes")
-          .removeAttribute("animation-mixer"); 
-        document
-          .getElementById("planes")
-          .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
-      });
-      document
-        .getElementById("animation_reverse")
-        .addEventListener("click", function () {
-      document
-        .getElementById("planes")
-        .removeAttribute("animation-mixer"); 
+<!DOCTYPE html>
+<html>
 
-      document
-        .getElementById("planes")
-          .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
-      });
-    };
-  </script>
+<script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.5/aframe/build/aframe-ar.js"></script>
 
-  <style>
-    .buttons {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 10;
-    }
-
-  </style>
-
-  <body style="margin : 0px; overflow: hidden;">
-
-    <div class="buttons">
-      <button id="animation">Разложить чертеж</button>
-      <button id="animation_reverse">Сложить чертеж</button>
-    </div>
-
-    <a-scene
-    arjs
-    embedded
-    renderer="logarithmicDepthBuffer: true;"
-    vr-mode-ui="enabled: false"
-    gesture-detector
-    id="scene"
-    >
-    <a-assets>
-      <a-asset-item id="down" src="models/planes_animation_down.glb"></a-asset-item>
-      <a-asset-item id="frog" src="models/twist.glb"></a-asset-item>
-    </a-asset-item>
-  </a-assets>
-  <a-marker
-  preset="hiro"
-  raycaster="objects: .clickable"
-  emitevents="true"
-  cursor="fuse: false; rayOrigin: mouse;"
-  id="markerA"
-  >
-  <a-entity
-  id="planes"
-  gltf-model="#down"
-  position="0 0 0"
-  scale="1 1 1"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  >
-  </a-entity>
-      <a-entity
-      id="frog"
-      gltf-model="#frog"
-      position="0 0 0"
-      scale="5 5 5"
-      animation-mixer="clip: Armature|mixamo.com|Layer0"
-      class="clickable"
-      gesture-handler="minScale: 0.1; maxScale: 20"
-    >
-    </a-entity>
-  </a-marker>
-  <a-entity camera></a-entity>
+<body style='margin : 0px; overflow: scroll;'>
+  <a-scene embedded arjs>
+    <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+    <a-marker-camera preset='hiro'></a-marker-camera>
   </a-scene>
+</body>
+
+</html>
