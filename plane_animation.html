@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <html>
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
@@ -9,23 +9,30 @@
   <script>
     window.onload = function () {
       document
-        .getElementById("animation")
-        .addEventListener("click", function () {
-          document
-            .getElementById("planes")
-            .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
-        });
+      .getElementById("animation")
+      .addEventListener("click", function () {
         document
+          .getElementById("planes")
+          .removeAttribute("animation-mixer"); 
+        document
+          .getElementById("planes")
+          .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
+      });
+      document
         .getElementById("animation_reverse")
         .addEventListener("click", function () {
-          document.getElementById("planes").removeAttribute("animation-mixer"); 
+      document
+        .getElementById("planes")
+        .removeAttribute("animation-mixer"); 
 
-          document.getElementById("planes").setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
-        });
+      document
+        .getElementById("planes")
+          .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
+      });
     };
   </script>
 
-    <style>
+  <style>
     .buttons {
       position: absolute;
       bottom: 0;
@@ -37,7 +44,7 @@
       align-items: center;
       z-index: 10;
     }
-
+/*
     #animation {
       padding: 0.25em;
       border-radius: 4px;
@@ -46,44 +53,44 @@
       color: black;
       width: 4em;
       height: 2em;
-    }
+    }*/
   </style>
 
   <body style="margin : 0px; overflow: hidden;">
 
     <div class="buttons">
-      <button id="animation">Animation</button>
-      <button id="animation_reverse">Animation_reverse</button>
+      <button id="animation">Разложить чертеж</button>
+      <button id="animation_reverse">Сложить чертеж</button>
     </div>
 
-<a-scene
-  arjs
-  embedded
-  renderer="logarithmicDepthBuffer: true;"
-  vr-mode-ui="enabled: false"
-  gesture-detector
-  id="scene"
->
-  <a-assets>
-    <a-asset-item id="down" src="models/planes_animation_down.glb"></a-asset-item>
+    <a-scene
+    arjs
+    embedded
+    renderer="logarithmicDepthBuffer: true;"
+    vr-mode-ui="enabled: false"
+    gesture-detector
+    id="scene"
+    >
+    <a-assets>
+      <a-asset-item id="down" src="models/planes_animation_down.glb"></a-asset-item>
     </a-asset-item>
   </a-assets>
   <a-marker
-    preset="hiro"
-    raycaster="objects: .clickable"
-    emitevents="true"
-    cursor="fuse: false; rayOrigin: mouse;"
-    id="markerA"
+  preset="hiro"
+  raycaster="objects: .clickable"
+  emitevents="true"
+  cursor="fuse: false; rayOrigin: mouse;"
+  id="markerA"
   >
-    <a-entity
-      id="planes"
-      gltf-model="#down"
-      position="0 0 0"
-      scale="1 1 1"
-      class="clickable"
-      gesture-handler="minScale: 0.1; maxScale: 20"
-    >
-    </a-entity>
+  <a-entity
+  id="planes"
+  gltf-model="#down"
+  position="0 0 0"
+  scale="1 1 1"
+  class="clickable"
+  gesture-handler="minScale: 0.1; maxScale: 20"
+  >
+  </a-entity>
   </a-marker>
   <a-entity camera></a-entity>
-</a-scene>
+  </a-scene>
