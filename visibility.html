@@ -11,9 +11,15 @@
       document
       .getElementById("animation")
       .addEventListener("click", function () {
+        // удаляем гантелю
+        document
+        .getElementById("gantelya")
+        .removeAttribute("gltf-model");
+        // очищаем анимейшен миксер
         document
           .getElementById("planes")
           .removeAttribute("animation-mixer"); 
+          // назначаем новый анимейшен миксер
         document
           .getElementById("planes")
           .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
@@ -21,6 +27,7 @@
       document
         .getElementById("animation_reverse")
         .addEventListener("click", function () {
+
       document
         .getElementById("planes")
         .removeAttribute("animation-mixer"); 
