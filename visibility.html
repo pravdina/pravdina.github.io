@@ -73,9 +73,9 @@
   cursor="fuse: false; rayOrigin: mouse;"
   id="markerA"
   >
-<a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9">
-    <a-animation attribute="visible" dur="5000" to="false" repeat="indefinite"></a-animation>
-</a-box>
+<a-entity id="blushing-cube" geometry="primitive: box">
+  <a-animation attribute="material.color" from="white" to="red" dur="1000"></a-animation>
+</a-entity>
 
   </a-entity>
   </a-marker>
