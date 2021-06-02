@@ -1,6 +1,7 @@
   <!DOCTYPE html>
   <html lang="en">
   <html>
+  <link rel="stylesheet" type="text/css" href="togle.css">
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
@@ -12,7 +13,24 @@
         .getElementById(el_id)
         .removeAttribute("gltf-model"); 
     }
+
+    function check_model() {
+
+      if (document.getElementById('model').checked) {
+        alert('Выбран');
+      }
+      else {
+        alert ('Не выбран');
+      }
+      
+    }
+
+    // function add_button_action(but_id, func, el_id){
+
+
+    // }
     window.onload = function () {
+
       // анимация РАЗЛОЖЕНИЕ ПЛОСКОСТЕЙ
       document
       .getElementById("animation")
@@ -100,6 +118,11 @@
   <body style="margin : 0px; overflow: hidden;">
 
     <div class="buttons">
+      Модель:
+  <label class="switch">
+    <input type="checkbox" id="model" onchange="check_model()">
+    <span class="slider round"></span>
+  </label><br>
       <button id="animation">Разложить чертеж</button>
       <button id="animation_reverse">Сложить чертеж</button>
       <button id="visibility_off">Спрятать плоскости</button>
