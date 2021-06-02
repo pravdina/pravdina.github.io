@@ -117,12 +117,13 @@
 
   <body style="margin : 0px; overflow: hidden;">
 
+    Модель:
+    <label class="switch">
+      <input type="checkbox" id="model" onchange="check_model()">
+      <span class="slider round"></span>
+    </label><br>
+    
     <div class="buttons">
-      Модель:
-  <label class="switch">
-    <input type="checkbox" id="model" onchange="check_model()">
-    <span class="slider round"></span>
-  </label><br>
       <button id="animation">Разложить чертеж</button>
       <button id="animation_reverse">Сложить чертеж</button>
       <button id="visibility_off">Спрятать плоскости</button>
