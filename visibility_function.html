@@ -32,6 +32,23 @@
       
     }
 
+    function planes_model() {
+
+      if (document.getElementById('planes_checkbox').checked) {
+        // alert('Выбран');
+        document
+        .getElementById("planes")
+        .setAttribute("gltf-model", "#down"); 
+      }
+      else {
+        // alert ('Не выбран');
+        document
+        .getElementById("planes")
+        .removeAttribute("gltf-model");
+      }
+      
+    }
+
     // function add_button_action(but_id, func, el_id){
 
 
@@ -128,6 +145,11 @@
       Модель: 
     <label class="switch">
       <input type="checkbox" id="model_checkbox" onchange="check_model()" checked="true">
+      <span class="slider round"></span>
+    </label><br>
+    Плоскости: 
+    <label class="switch">
+      <input type="checkbox" id="planes_checkbox" onchange="check_planes()" checked="true">
       <span class="slider round"></span>
     </label><br>
     </div>
