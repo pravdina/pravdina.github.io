@@ -89,37 +89,6 @@
         .getElementById("planes")
           .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
       });
-// СКРЫТЬ ПЛОСКОСТИ
-      document
-        .getElementById("visibility_off")
-        .addEventListener("click", function () {
-          hide("planes");
-      });
-        // ОТОБРАЗИТЬ ПЛОСКОСТИ
-      document
-        .getElementById("visibility_on")
-        .addEventListener("click", function () {
-      document
-        .getElementById("planes")
-        .setAttribute("gltf-model", "#down"); 
-      });
-      // СПРЯТАТЬ ГАНТЕЛЮ
-        document
-        .getElementById("vis_gant_off")
-        .addEventListener("click", function () {
-      document
-        .getElementById("gantelka")
-        .removeAttribute("gltf-model"); 
-      });
-
-        // ПОКАЗАТЬ ГАНТЕЛЮ
-        document
-        .getElementById("vis_gant_on")
-        .addEventListener("click", function () {
-      document
-        .getElementById("gantelka")
-        .setAttribute("gltf-model", "#gantelya"); 
-      });
 
     };
   </script>
@@ -163,7 +132,7 @@
     id="scene"
     >
     <a-assets>
-      <a-asset-item id="down" src="models/planes_animation_down.glb"></a-asset-item>
+      <a-asset-item id="down" src="models/otrezok.glb"></a-asset-item>
       <a-asset-item id="gantelya" src="models/gantelya.glb"></a-asset-item>
     </a-asset-item>
   </a-assets>
@@ -183,14 +152,14 @@
   gesture-handler="minScale: 0.1; maxScale: 20"
   >
   </a-entity>
-  <a-entity
+  <!-- <a-entity
   id="model"
   gltf-model="#gantelya"
   position="0 0 0"
   scale="1 1 1"
   class="clickable"
   gesture-handler="minScale: 0.1; maxScale: 20"
-  ></a-entity>
+  ></a-entity> -->
   </a-marker>
   <a-entity camera></a-entity>
   </a-scene>
