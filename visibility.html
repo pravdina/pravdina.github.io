@@ -13,7 +13,7 @@
       .addEventListener("click", function () {
         // удаляем гантелю
         document
-        .getElementById("gantelya")
+        .getElementById("gantelka")
         .removeAttribute("gltf-model");
         // очищаем анимейшен миксер
         document
@@ -45,6 +45,14 @@
         .removeAttribute("gltf-model"); 
       });
 
+        document
+        .getElementById("vis_gant")
+        .addEventListener("click", function () {
+      document
+        .getElementById("gantelka")
+        .removeAttribute("gltf-model"); 
+      });
+
     };
   </script>
 
@@ -69,6 +77,7 @@
       <button id="animation">Разложить чертеж</button>
       <button id="animation_reverse">Сложить чертеж</button>
       <button id="visibility">Спрятать плоскости</button>
+      <button id="vis_gant">Спрятать гантелю</button>
     </div>
 
     <a-scene
@@ -101,7 +110,7 @@
   >
   </a-entity>
   <a-entity
-  id="gantelya"
+  id="gantelka"
   gltf-model="#gantelya"
   position="0 0 0"
   scale="1 1 1"
