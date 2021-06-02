@@ -73,14 +73,9 @@
   cursor="fuse: false; rayOrigin: mouse;"
   id="markerA"
   >
-  <a-entity
-  id="planes"
-  gltf-model="#down"
-  position="0 0 0"
-  scale="1 1 1"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  >
+<a-entity id="fading-cube" geometry="primitive: box" material="opacity: 1">
+  <a-animation attribute="material.opacity" begin="fade" to="0"></a-animation>
+</a-entity>
   </a-entity>
   </a-marker>
   <a-entity camera></a-entity>
