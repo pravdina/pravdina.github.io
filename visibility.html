@@ -8,6 +8,7 @@
   <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
   <script>
     window.onload = function () {
+      // анимация РАЗЛОЖЕНИЕ ПЛОСКОСТЕЙ
       document
       .getElementById("animation")
       .addEventListener("click", function () {
@@ -24,6 +25,7 @@
           .getElementById("planes")
           .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
       });
+      // анимация СКЛАДЫВАНИЕ ПЛОСКОСТЕЙ
       document
         .getElementById("animation_reverse")
         .addEventListener("click", function () {
@@ -36,21 +38,38 @@
         .getElementById("planes")
           .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
       });
-// Удаляем по кнопке плоскости
+// СКРЫТЬ ПЛОСКОСТИ
       document
-        .getElementById("visibility")
+        .getElementById("visibility_off")
         .addEventListener("click", function () {
       document
         .getElementById("planes")
         .removeAttribute("gltf-model"); 
       });
-
+        // ОТОБРАЗИТЬ ПЛОСКОСТИ
+      document
+        .getElementById("visibility_on")
+        .addEventListener("click", function () {
+      document
+        .getElementById("planes")
+        .setAttribute("gltf-model", "#down"); 
+      });
+      // СПРЯТАТЬ ГАНТЕЛЮ
         document
-        .getElementById("vis_gant")
+        .getElementById("vis_gant_off")
         .addEventListener("click", function () {
       document
         .getElementById("gantelka")
         .removeAttribute("gltf-model"); 
+      });
+
+        // ПОКАЗАТЬ ГАНТЕЛЮ
+        document
+        .getElementById("vis_gant_on")
+        .addEventListener("click", function () {
+      document
+        .getElementById("gantelka")
+        .setAttribute("gltf-model", "#gantelya"); 
       });
 
     };
@@ -76,8 +95,10 @@
     <div class="buttons">
       <button id="animation">Разложить чертеж</button>
       <button id="animation_reverse">Сложить чертеж</button>
-      <button id="visibility">Спрятать плоскости</button>
-      <button id="vis_gant">Спрятать гантелю</button>
+      <button id="visibility_off">Спрятать плоскости</button>
+      <button id="visibility_on">Показать плоскости</button>
+      <button id="vis_gant_off">Спрятать гантелю</button>
+      <button id="vis_gant_on">Показать гантелю</button>
     </div>
 
     <a-scene
