@@ -74,6 +74,7 @@
     >
     <a-assets>
       <a-asset-item id="down" src="models/planes_animation_down.glb"></a-asset-item>
+      <a-asset-item id="gantelya" src="models/gantelya.glb"></a-asset-item>
     </a-asset-item>
   </a-assets>
   <a-marker
@@ -92,7 +93,14 @@
   gesture-handler="minScale: 0.1; maxScale: 20"
   >
   </a-entity>
-  <a-entity id="fading-cube" geometry="primitive: box" material="opacity: 1"></a-entity>
+  <a-entity
+  id="planes"
+  gltf-model="#gantelya"
+  position="0 0 0"
+  scale="1 1 1"
+  class="clickable"
+  gesture-handler="minScale: 0.1; maxScale: 20"
+  ></a-entity>
   </a-marker>
   <a-entity camera></a-entity>
   </a-scene>
