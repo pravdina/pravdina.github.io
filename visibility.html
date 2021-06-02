@@ -29,7 +29,7 @@
         .getElementById("planes")
           .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
       });
-
+// Удаляем по кнопке плоскости
       document
         .getElementById("visibility")
         .addEventListener("click", function () {
@@ -92,6 +92,7 @@
   gesture-handler="minScale: 0.1; maxScale: 20"
   >
   </a-entity>
+  <a-entity id="fading-cube" geometry="primitive: box" material="opacity: 1"></a-entity>
   </a-marker>
   <a-entity camera></a-entity>
   </a-scene>
