@@ -132,8 +132,9 @@
     id="scene"
     >
     <a-assets>
-      <a-asset-item id="down" src="models/planes.glb"></a-asset-item>
-      <a-asset-item id="gantelya" src="models/gantelya.glb"></a-asset-item>
+      <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
+      <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
+      <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
     </a-asset-item>
   </a-assets>
   <a-marker
@@ -145,7 +146,7 @@
   >
   <a-entity
   id="planes"
-  gltf-model="#down"
+  gltf-model="#planes_glb"
   position="0.5 0.5 0"
   scale="0.5 0.5 0.5"
   class="clickable"
@@ -153,10 +154,18 @@
   >
   </a-entity>
   <a-entity
-  id="model"
-  gltf-model="#gantelya"
+  id="lines"
+  gltf-model="#lines_glb"
   position="0 0 0"
-  scale="1 1 1"
+  scale="0.5 0.5 0.5"
+  class="clickable"
+  gesture-handler="minScale: 0.1; maxScale: 20"
+  ></a-entity>
+  <a-entity
+  id="model"
+  gltf-model="#model_glb"
+  position="0 0 0"
+  scale="0.5 0.5 0.5"
   class="clickable"
   gesture-handler="minScale: 0.1; maxScale: 20"
   ></a-entity>
