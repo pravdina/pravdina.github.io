@@ -30,57 +30,57 @@
         .removeAttribute("gltf-model"); 
     }
 
-    function check_model() {
+    // function check_model() {
 
-      if (document.getElementById('model_checkbox').checked) {
-        // alert('Выбран');
-        document
-        .getElementById("model")
-        .setAttribute("gltf-model", "#model_glb"); 
-      }
-      else {
-        // alert ('Не выбран');
-        document
-        .getElementById("model")
-        .removeAttribute("gltf-model");
-      }
+    //   if (document.getElementById('model_checkbox').checked) {
+    //     // alert('Выбран');
+    //     document
+    //     .getElementById("model")
+    //     .setAttribute("gltf-model", "#model_glb"); 
+    //   }
+    //   else {
+    //     // alert ('Не выбран');
+    //     document
+    //     .getElementById("model")
+    //     .removeAttribute("gltf-model");
+    //   }
       
-    }
+    // }
 
-    function check_planes() {
+    // function check_planes() {
 
-      if (document.getElementById('planes_checkbox').checked) {
-        // alert('Выбран');
-        document
-        .getElementById("planes")
-        .setAttribute("gltf-model", "#planes_glb"); 
-      }
-      else {
-        // alert ('Не выбран');
-        document
-        .getElementById("planes")
-        .removeAttribute("gltf-model");
-      }
+    //   if (document.getElementById('planes_checkbox').checked) {
+    //     // alert('Выбран');
+    //     document
+    //     .getElementById("planes")
+    //     .setAttribute("gltf-model", "#planes_glb"); 
+    //   }
+    //   else {
+    //     // alert ('Не выбран');
+    //     document
+    //     .getElementById("planes")
+    //     .removeAttribute("gltf-model");
+    //   }
       
-    }
+    // }
 
-    function check_lines() {
+    // function check_lines() {
 
-      if (document.getElementById('lines_checkbox').checked) {
-        // alert('Выбран');
-        document
-        .getElementById("lines")
-        .setAttribute("gltf-model", "#lines_glb"); 
-      }
-      else {
-        // alert ('Не выбран');
-        document
-        .getElementById("lines")
-        .removeAttribute("gltf-model");
-      }
+    //   if (document.getElementById('lines_checkbox').checked) {
+    //     // alert('Выбран');
+    //     document
+    //     .getElementById("lines")
+    //     .setAttribute("gltf-model", "#lines_glb"); 
+    //   }
+    //   else {
+    //     // alert ('Не выбран');
+    //     document
+    //     .getElementById("lines")
+    //     .removeAttribute("gltf-model");
+    //   }
       
-    }
-
+    // }
+// ------
     // function add_button_action(but_id, func, el_id){
 
 
@@ -143,19 +143,19 @@
 
     
     <div class="buttons">
-      Модель: 
+      Модель1: 
     <label class="switch">
       <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true">
       <span class="slider round"></span>
     </label><br>
-    Плоскости: 
+    Плоскости1: 
     <label class="switch">
-      <input type="checkbox" id="planes_checkbox" onchange="check_planes()" checked="true">
+      <input type="checkbox" id="planes_checkbox" onchange="check('planes')" checked="true">
       <span class="slider round"></span>
     </label><br>
-    Линии: 
+    Линии1: 
     <label class="switch">
-      <input type="checkbox" id="lines_checkbox" onchange="check_lines()" checked="true">
+      <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true">
       <span class="slider round"></span>
     </label><br>
     </div>
