@@ -49,6 +49,23 @@
       
     }
 
+    function check_lines() {
+
+      if (document.getElementById('lines_checkbox').checked) {
+        // alert('Выбран');
+        document
+        .getElementById("lines")
+        .setAttribute("gltf-model", "#lines_glb"); 
+      }
+      else {
+        // alert ('Не выбран');
+        document
+        .getElementById("planes")
+        .removeAttribute("gltf-model");
+      }
+      
+    }
+
     // function add_button_action(but_id, func, el_id){
 
 
@@ -119,6 +136,11 @@
     Плоскости: 
     <label class="switch">
       <input type="checkbox" id="planes_checkbox" onchange="check_planes()" checked="true">
+      <span class="slider round"></span>
+    </label><br>
+    Линии: 
+    <label class="switch">
+      <input type="checkbox" id="lines_checkbox" onchange="check_planes()" checked="true">
       <span class="slider round"></span>
     </label><br>
     </div>
