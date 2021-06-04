@@ -9,6 +9,21 @@
   <!-- <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script> -->
   <script>
 
+    function check(a){
+      if (document.getElementById(`${a}_checkbox`).checked) {
+        // alert('Выбран');
+        document
+        .getElementById(`${a}`)
+        .setAttribute("gltf-model", `#${a}_glb`); 
+      }
+      else {
+        // alert ('Не выбран');
+        document
+        .getElementById(`${a}`)
+        .removeAttribute("gltf-model");
+      }
+    }
+
     function hide(el_id){
       document
         .getElementById(el_id)
@@ -130,7 +145,7 @@
     <div class="buttons">
       Модель: 
     <label class="switch">
-      <input type="checkbox" id="model_checkbox" onchange="check_model()" checked="true">
+      <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true">
       <span class="slider round"></span>
     </label><br>
     Плоскости: 
