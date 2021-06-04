@@ -21,7 +21,7 @@
         // alert('Выбран');
         document
         .getElementById("model")
-        .setAttribute("gltf-model", "#gantelya"); 
+        .setAttribute("gltf-model", "#model_glb"); 
       }
       else {
         // alert ('Не выбран');
@@ -38,7 +38,7 @@
         // alert('Выбран');
         document
         .getElementById("planes")
-        .setAttribute("gltf-model", "#down"); 
+        .setAttribute("gltf-model", "#planes_glb"); 
       }
       else {
         // alert ('Не выбран');
@@ -53,44 +53,44 @@
 
 
     // }
-    window.onload = function () {
+    // window.onload = function () {
 
-      // анимация РАЗЛОЖЕНИЕ ПЛОСКОСТЕЙ
-      document
-      .getElementById("animation")
-      .addEventListener("click", function () {
-        // удаляем гантелю
-        document
-        .getElementById("gantelka")
-        .removeAttribute("gltf-model");
-        // очищаем анимейшен миксер
-        document
-          .getElementById("planes")
-          .removeAttribute("animation-mixer"); 
-          // назначаем новый анимейшен миксер
-        document
-          .getElementById("planes")
-          .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
-      });
-      // анимация СКЛАДЫВАНИЕ ПЛОСКОСТЕЙ
-      document
-        .getElementById("animation_reverse")
-        .addEventListener("click", function () {
+    //   // анимация РАЗЛОЖЕНИЕ ПЛОСКОСТЕЙ
+    //   document
+    //   .getElementById("animation")
+    //   .addEventListener("click", function () {
+    //     // удаляем гантелю
+    //     document
+    //     .getElementById("gantelka")
+    //     .removeAttribute("gltf-model");
+    //     // очищаем анимейшен миксер
+    //     document
+    //       .getElementById("planes")
+    //       .removeAttribute("animation-mixer"); 
+    //       // назначаем новый анимейшен миксер
+    //     document
+    //       .getElementById("planes")
+    //       .setAttribute("animation-mixer", "clip: Plane*; timeScale: 1; clampWhenFinished: true; repetitions:1");
+    //   });
+    //   // анимация СКЛАДЫВАНИЕ ПЛОСКОСТЕЙ
+    //   document
+    //     .getElementById("animation_reverse")
+    //     .addEventListener("click", function () {
 
-      document
-        .getElementById("gantelka")
-        .setAttribute("gltf-model", "#gantelya");
+    //   document
+    //     .getElementById("gantelka")
+    //     .setAttribute("gltf-model", "#gantelya");
 
-      document
-        .getElementById("planes")
-        .removeAttribute("animation-mixer"); 
+    //   document
+    //     .getElementById("planes")
+    //     .removeAttribute("animation-mixer"); 
 
-      document
-        .getElementById("planes")
-          .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
-      });
+    //   document
+    //     .getElementById("planes")
+    //       .setAttribute("animation-mixer", "clip: Plane*; timeScale: -1; clampWhenFinished: true; repetitions:1");
+    //   });
 
-    };
+    // };
   </script>
 
   <style>
@@ -156,7 +156,7 @@
   <a-entity
   id="lines"
   gltf-model="#lines_glb"
-  position="0 0 0"
+  position="0.5 0.5 0"
   scale="0.5 0.5 0.5"
   class="clickable"
   gesture-handler="minScale: 0.1; maxScale: 20"
@@ -164,7 +164,7 @@
   <a-entity
   id="model"
   gltf-model="#model_glb"
-  position="0 0 0"
+  position="0.5 0.5 0"
   scale="0.5 0.5 0.5"
   class="clickable"
   gesture-handler="minScale: 0.1; maxScale: 20"
