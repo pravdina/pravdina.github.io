@@ -88,7 +88,7 @@
   <style>
     .buttons {
       position: absolute;
-      bottom: 50px;
+      bottom: 100px;
       left: 0;
       width: 100%;
       height: 5em;
@@ -126,12 +126,6 @@
       z-index: 10;
       font-size: 20px;
     }
-    #drawing_animation_btn{
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 50px;
-    }
   </style>
 
   <body style="margin : 0px; overflow: hidden;">
@@ -146,7 +140,7 @@
       <option value="value3">Фронтально-проектуюча пряма</option>
       <option value="value3">Профільно-проектуюча пряма</option>
     </select>
-    <!-- <div class="description">jhh</div> -->
+    <div class="description">jhh</div>
     <div class="buttons">
     Модель1: 
     <label class="switch">
@@ -158,9 +152,10 @@
       <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true">
       <span class="slider round"></span>
     </label><br>
-    </div>
 
     <input id ='drawing_animation_btn', type=button value="Розкласти кресленик" onclick = "drawing_animation();">
+
+    </div>
 
     <a-scene
     arjs
