@@ -69,14 +69,14 @@
         // alert("Сейчас чертеж разложиться");
         document
           .getElementById("drawing_animation_btn")
-          .setAttribute("value", "Сложить чертеж");
+          .setAttribute("value", "Скласти кресленик");
         i=1;
       }
       else{
         // alert("Сейчас чертеж cложиться");
         document
           .getElementById("drawing_animation_btn")
-          .setAttribute("value", "Разложить чертеж");
+          .setAttribute("value", "Розкласти кресленик");
         i=0;
       }
 
@@ -88,7 +88,7 @@
   <style>
     .buttons {
       position: absolute;
-      bottom: 100px;
+      bottom: 30px;
       left: 0;
       width: 100%;
       height: 5em;
@@ -126,6 +126,12 @@
       z-index: 10;
       font-size: 20px;
     }
+    #drawing_animation_btn{
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 30px;
+    }
   </style>
 
   <body style="margin : 0px; overflow: hidden;">
@@ -140,9 +146,9 @@
       <option value="value3">Фронтально-проектуюча пряма</option>
       <option value="value3">Профільно-проектуюча пряма</option>
     </select>
-    <div class="description">jhh</div>
+    <!-- <div class="description">jhh</div> -->
     <div class="buttons">
-      Модель1: 
+    Модель1: 
     <label class="switch">
       <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true">
       <span class="slider round"></span>
@@ -152,10 +158,9 @@
       <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true">
       <span class="slider round"></span>
     </label><br>
+    </div>
 
     <input id ='drawing_animation_btn', type=button value="Розкласти кресленик" onclick = "drawing_animation();">
-
-    </div>
 
     <a-scene
     arjs
