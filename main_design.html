@@ -24,11 +24,30 @@
       }
     }
 
-    function hide(el_id){
-      document
-        .getElementById(el_id)
-        .removeAttribute("gltf-model"); 
+    function to_2d(){
+              // удаляем гантелю
+        document
+        .getElementById("model")
+        .removeAttribute("gltf-model");
+        // очищаем анимейшен миксер
+        document
+          .getElementById("planes")
+          .removeAttribute("animation-mixer"); 
+          // назначаем новый анимейшен миксер
+        document
+          .getElementById("planes")
+          .setAttribute("animation-mixer", "clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1");
+
     }
+
+    function to_3d(){
+      
+    }
+
+    function drawing_animation(){
+
+    }
+
 
   </script>
 
@@ -43,6 +62,7 @@
       justify-content: center;
       align-items: center;
       z-index: 10;
+      background-color: white;
     }
     .description{
       position: absolute;
@@ -98,6 +118,9 @@
       <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true">
       <span class="slider round"></span>
     </label><br>
+
+    <input id ='drawing_animation', type=button value="Розкласти кресленик" onclick = "to_2d();">
+
     </div>
 
     <a-scene
