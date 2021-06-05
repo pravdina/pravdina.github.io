@@ -15,6 +15,7 @@
 	<style type="text/css">
 		body{
 			background-color: gray;
+			margin: 0;
 		}
 		.control{
 			position: absolute;
@@ -30,19 +31,51 @@
 		.switches{
 			display: flex;
 			flex-direction: column;
+			height: 90px;
+			justify-content: space-evenly;
 			/*justify-content: center;*/
 		}
 		.radios{
 			display: flex;
 			flex-direction: column;
+			height: 90px;
+			justify-content: space-evenly;
 			/*justify-content: center;*/
 		}
-
-
-
+		#description{
+			position: absolute;
+		    bottom: 90px;
+		    left: 0;
+		    height: 80px;
+		    background-color: pink;
+		    padding: 5px;
+		    width: 100%;
+		}
 	</style>
+	<script type="text/javascript">
+		var description_vis=true;
+		window.onload = function () {
+	document
+      .getElementById("info_btn")
+      .addEventListener("click", function () {
+      	if(description_vis){
+	        document
+	        .getElementById("description")
+	        .setAttribute("style", "visibility : hidden;");
+	        description_vis=false;
+        }
+        else{
+        	document
+	        .getElementById("description")
+	        .setAttribute("style", "visibility : visible;");
+	        description_vis=true;
+        }
+      });
+  }
+	</script>
 </head>
 <body>
+	<div id="description" >fggf</div>
 	<div class="control">
 		<div class="switches">
 			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
@@ -68,7 +101,7 @@
 		</label>
 		</div>
 
-		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+		<button id="info_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
 		  <i class="material-icons">info</i>
 		</button>
 	</div>
