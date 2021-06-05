@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="mdl/material.min.css">
+	<script src="mdl/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<!-- Цвет -->
+	<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
+	<!-- Шрифт -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+
+	<style type="text/css">
+		body{
+			background-color: gray;
+		}
+		.control{
+			position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    width: 100%;
+			background-color: white;
+			display: flex;
+			padding: 5px;
+			justify-content: space-around;
+      		align-items: center;
+		}
+		.switches{
+			display: flex;
+			flex-direction: column;
+			/*justify-content: center;*/
+		}
+		.radios{
+			display: flex;
+			flex-direction: column;
+			/*justify-content: center;*/
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<div class="control">
+		<div class="switches">
+			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+			  <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+			  <span class="mdl-switch__label">Модель</span>
+			</label>
+			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+			  <input type="checkbox" id="switch-2" class="mdl-switch__input">
+			  <span class="mdl-switch__label">Лінії</span>
+			</label>
+		</div>
+		<!-- <button style="width: 100%"; class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+		  Розкласти кресленик 
+		</button> -->
+		<div class="radios">
+		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+		  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+		  <span class="mdl-radio__label">3D</span>
+		</label>
+		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+		  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+		  <span class="mdl-radio__label">2D</span>
+		</label>
+		</div>
+
+		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+		  <i class="material-icons">info</i>
+		</button>
+	</div>
+</body>
+</html>
