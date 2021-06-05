@@ -9,6 +9,8 @@
   <!-- <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script> -->
   <script>
 
+    var i=0;
+
     function check(a){
       if (document.getElementById(`${a}_checkbox`).checked) {
         // alert('Выбран');
@@ -25,26 +27,58 @@
     }
 
     function to_2d(){
-              // удаляем гантелю
+        // удаляем модель
         document
         .getElementById("model")
+        .removeAttribute("gltf-model");
+        // удаляем вспомогательные линии
+        document
+        .getElementById("lines")
         .removeAttribute("gltf-model");
         // очищаем анимейшен миксер
         document
           .getElementById("planes")
           .removeAttribute("animation-mixer"); 
-          // назначаем новый анимейшен миксер
+        // назначаем новый анимейшен миксер
         document
           .getElementById("planes")
           .setAttribute("animation-mixer", "clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1");
-
     }
 
     function to_3d(){
-      
+      // делаем модель видимой
+      document
+        .getElementById("model")
+        .setAttribute("gltf-model", "#model_glb");
+      // делаем линии видимыми
+      document
+        .getElementById("lines")
+        .setAttribute("gltf-model", "#lines_glb");
+      // очищаем анимейшен миксер
+      document
+        .getElementById("planes")
+        .removeAttribute("animation-mixer"); 
+      // назначаем новый анимейшен миксер
+      document
+        .getElementById("planes")
+        .setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
     }
 
     function drawing_animation(){
+      if (i==0){
+        // alert("Сейчас чертеж разложиться");
+        document
+          .getElementById("drawing_animation_btn")
+          .setAttribute("value", "Сложить чертеж");
+        i=1;
+      }
+      else{
+        // alert("Сейчас чертеж cложиться");
+        document
+          .getElementById("drawing_animation_btn")
+          .setAttribute("value", "Разложить чертеж");
+        i=0;
+      }
 
     }
 
@@ -119,7 +153,7 @@
       <span class="slider round"></span>
     </label><br>
 
-    <input id ='drawing_animation', type=button value="Розкласти кресленик" onclick = "to_2d();">
+    <input id ='drawing_animation_btn', type=button value="Розкласти кресленик" onclick = "drawing_animation();">
 
     </div>
 
