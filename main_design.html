@@ -1,0 +1,121 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <html>
+  <link rel="stylesheet" type="text/css" href="togle.css">
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+  <!-- <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script> -->
+  <script>
+
+    function check(a){
+      if (document.getElementById(`${a}_checkbox`).checked) {
+        // alert('Выбран');
+        document
+        .getElementById(`${a}`)
+        .setAttribute("gltf-model", `#${a}_glb`); 
+      }
+      else {
+        // alert ('Не выбран');
+        document
+        .getElementById(`${a}`)
+        .removeAttribute("gltf-model");
+      }
+    }
+
+    function hide(el_id){
+      document
+        .getElementById(el_id)
+        .removeAttribute("gltf-model"); 
+    }
+
+  </script>
+
+  <style>
+    .buttons {
+      position: absolute;
+      bottom: 100px;
+      left: 0;
+      width: 100%;
+      height: 5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10;
+    }
+    .description{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: white;
+    }
+  </style>
+
+  <body style="margin : 0px; overflow: hidden;">
+
+    <div class="description">jhh</div>
+    <div class="buttons">
+      Модель1: 
+    <label class="switch">
+      <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true">
+      <span class="slider round"></span>
+    </label><br>
+    Линии1: 
+    <label class="switch">
+      <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true">
+      <span class="slider round"></span>
+    </label><br>
+    </div>
+
+    <a-scene
+    arjs
+    embedded
+    renderer="logarithmicDepthBuffer: true;"
+    vr-mode-ui="enabled: false"
+    gesture-detector
+    id="scene"
+    >
+    <a-assets>
+      <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
+      <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
+      <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
+    </a-asset-item>
+  </a-assets>
+  <a-marker
+  preset="hiro"
+  raycaster="objects: .clickable"
+  emitevents="true"
+  cursor="fuse: false; rayOrigin: mouse;"
+  id="markerA"
+  >
+  <a-entity
+  id="planes"
+  gltf-model="#planes_glb"
+  position="0.5 0.5 0"
+  scale="0.5 0.5 0.5"
+  class="clickable"
+  gesture-handler="minScale: 0.1; maxScale: 20"
+  >
+  </a-entity>
+  <a-entity
+  id="lines"
+  gltf-model="#lines_glb"
+  position="0.5 0.5 0"
+  scale="0.5 0.5 0.5"
+  class="clickable"
+  gesture-handler="minScale: 0.1; maxScale: 20"
+  ></a-entity>
+  <a-entity
+  id="model"
+  gltf-model="#model_glb"
+  position="0.5 0.5 0"
+  scale="0.5 0.5 0.5"
+  class="clickable"
+  gesture-handler="minScale: 0.1; maxScale: 20"
+  ></a-entity>
+  </a-marker>
+  <a-entity camera></a-entity>
+  </a-scene>
