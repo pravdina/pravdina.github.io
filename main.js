@@ -46,6 +46,16 @@ function update_current(name){
 	current_straight_line = name;
 	current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
 	current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
+
+	document
+		.getElementById("model")
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
+	document
+		.getElementById("lines")
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
+	document
+		.getElementById("planes")
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
 }
 
 
