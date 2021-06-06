@@ -85,12 +85,12 @@
 <!-- Панель управления -->
 <div class="control">
   <div class="switches">
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-      <input type="checkbox" id="model_checkbox" checked="true" class="mdl-switch__input">
+    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="model_checkbox">
+      <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true" class="mdl-switch__input">
       <span class="mdl-switch__label">Модель</span>
     </label>
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-      <input type="checkbox" id="lines_checkbox" class="mdl-switch__input">
+    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="lines_checkbox">
+      <input input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true" class="mdl-switch__input">
       <span class="mdl-switch__label">Лінії</span>
     </label>
   </div>
