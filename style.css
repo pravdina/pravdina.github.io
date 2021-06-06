@@ -39,6 +39,7 @@ body{
 .mdl-card {
 	min-height: 52px;
 	overflow: visible;
+	z-index: 11;
 }
 .mdl-card__title{
 	padding-right: 0;
