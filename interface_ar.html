@@ -20,6 +20,20 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <script src="main.js"></script>
+<script type="text/javascript">
+  function check(a){
+  if (document.getElementById(`${a}_checkbox`).checked) {
+        document
+        .getElementById(`${a}`)
+        .setAttribute("gltf-model", `#${a}_glb`); 
+    }
+    else {
+        document
+        .getElementById(`${a}`)
+        .removeAttribute("gltf-model");
+    }
+}
+</script>
 
 <body style="margin : 0px; overflow: hidden;">
 
@@ -72,11 +86,11 @@
 <div class="control">
   <div class="switches">
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-      <input type="checkbox" id="model_checkbox" onchange="check('model')" checked class="mdl-switch__input">
+      <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true" class="mdl-switch__input">
       <span class="mdl-switch__label">Модель</span>
     </label>
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-      <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked class="mdl-switch__input">
+      <input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true" class="mdl-switch__input">
       <span class="mdl-switch__label">Лінії</span>
     </label>
   </div>
