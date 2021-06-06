@@ -18,15 +18,15 @@
 			margin: 0;
 		}
 		.control{
-			position: absolute;
-		    bottom: 0;
-		    left: 0;
-		    width: 100%;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			width: calc(100vw - 40px);
 			background-color: white;
 			display: flex;
-			padding: 5px;
-			justify-content: space-around;
-      		align-items: center;
+			padding: 4px 20px;
+			justify-content: space-between;
+			align-items: center;
 		}
 		.switches{
 			display: flex;
@@ -43,66 +43,130 @@
 			/*justify-content: center;*/
 		}
 		#description{
-			position: absolute;
-		    bottom: 90px;
-		    left: 0;
-		    height: 80px;
-		    background-color: pink;
-		    padding: 5px;
-		    width: 100%;
+			position: fixed;
+			bottom: 98px;
+			left: 0;
+			/*background-color: pink;*/
+			padding: 4px;
+			width: 100%;
 		}
+		.mdl-card {
+			min-height: 50px;
+		}
+		.mdl-card__title{
+			/*padding-bottom: 8px;*/
+		}
+		.mdl-card__title-text {
+			font-size: 20px;
+		}
+		.mdl-card__supporting-text {
+			padding-top: 0;
+		}
+		#demo-menu-lower-right{
+			position: absolute;
+			right: 0px;
+		}
+
+
 	</style>
 	<script type="text/javascript">
 		var description_vis=true;
 		window.onload = function () {
-	document
-      .getElementById("info_btn")
-      .addEventListener("click", function () {
-      	if(description_vis){
-	        document
-	        .getElementById("description")
-	        .setAttribute("style", "visibility : hidden;");
-	        description_vis=false;
-        }
-        else{
-        	document
-	        .getElementById("description")
-	        .setAttribute("style", "visibility : visible;");
-	        description_vis=true;
-        }
-      });
-  }
+			document
+			.getElementById("info_btn")
+			.addEventListener("click", function () {
+				// if(description_vis){
+				// 	document
+				// 	.getElementById("description")
+				// 	.setAttribute("style", "visibility : hidden;");
+				// 	description_vis=false;
+				// }
+				// else{
+				// 	document
+				// 	.getElementById("description")
+				// 	.setAttribute("style", "visibility : visible;");
+				// 	description_vis=true;
+				// }
+				if(description_vis){
+					document
+					.getElementById("theory_text")
+					.setAttribute("style", "display: block;");
+					description_vis=false;
+				}
+				else{
+					document
+					.getElementById("theory_text")
+					.setAttribute("style", "display: none;");
+					description_vis=true;
+				}
+			});
+		}
 	</script>
 </head>
 <body>
-	<div id="description" >fggf</div>
+
+	<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+      <button id="demo-menu-lower-right"
+        class="mdl-button mdl-js-button mdl-button--icon">
+  <i class="material-icons">more_vert</i>
+</button>
+
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+    for="demo-menu-lower-right">
+  <li class="mdl-menu__item">Some Action</li>
+  <li class="mdl-menu__item">Another Action</li>
+  <li disabled class="mdl-menu__item">Disabled Action</li>
+  <li class="mdl-menu__item">Yet Another Action</li>
+</ul>
+    </div>
+  </header>
+
+</div>
+
+	<!-- Right aligned menu below button -->
+
+
+	<!-- Описание -->
+	<div id="description" class="mdl-card mdl-shadow--2dp">
+		<div class="mdl-card__title">
+			<h6 class="mdl-card__title-text">Пряма горизонтального рівня</h6>
+		</div>
+		<div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+			Mauris sagittis pellentesque lacus eleifend lacinia... gjffkdkdlsllskskks
+			skskkskskksfkfk fkkfkf kfkfkf bvkbogltfm vlvlgfmmf dlcl
+		</div>
+	</div>
+	<!-- Панель управления -->
 	<div class="control">
 		<div class="switches">
 			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-			  <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-			  <span class="mdl-switch__label">Модель</span>
+				<input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+				<span class="mdl-switch__label">Модель</span>
 			</label>
 			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-			  <input type="checkbox" id="switch-2" class="mdl-switch__input">
-			  <span class="mdl-switch__label">Лінії</span>
+				<input type="checkbox" id="switch-2" class="mdl-switch__input">
+				<span class="mdl-switch__label">Лінії</span>
 			</label>
 		</div>
-		<!-- <button style="width: 100%"; class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
-		  Розкласти кресленик 
-		</button> -->
 		<div class="radios">
-		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-		  <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
-		  <span class="mdl-radio__label">3D</span>
-		</label>
-		<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-		  <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
-		  <span class="mdl-radio__label">2D</span>
-		</label>
+			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+				<input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+				<span class="mdl-radio__label">3D</span>
+			</label>
+			<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+				<input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+				<span class="mdl-radio__label">2D</span>
+			</label>
 		</div>
-
+		<!-- Кнопка для вывода информации -->
 		<button id="info_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-		  <i class="material-icons">info</i>
+			<i class="material-icons">info</i>
 		</button>
 	</div>
 </body>
