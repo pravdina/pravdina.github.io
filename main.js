@@ -90,10 +90,6 @@ function to_3d(){
 	document
 	.getElementById("lines")
 	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
-// плоскости коректная модель
-	document
-	.getElementById("planes")
-	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
 	// очищаем анимейшен миксер
 	document
 	.getElementById("planes")
