@@ -20,6 +20,22 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <body style="margin : 0px; overflow: hidden;">
+
+      <!-- Верхняя панель -->
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+          <div class="mdl-layout__header-row">
+            <!-- Кнопка домой -->
+            <button id="home_btn" class="mdl-button mdl-js-button mdl-button--icon"
+             onClick='location.href="index.html"'>
+              <i class="material-icons">home</i>
+            </button>
+            <!-- Название темы -->
+            <div class="mdl-layout-title">Положення прямої лінії відносно площин проекцій</div>
+          </div>
+        </header>
+      </div>
+    
     <!-- Описание -->
     <div id="description" class="mdl-card mdl-shadow--2dp">
       <div style="display: flex; justify-content: space-between;">
@@ -80,7 +96,7 @@
 
 
 
-  
+
   <a-scene
   arjs
   embedded
