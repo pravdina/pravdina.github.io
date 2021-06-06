@@ -1,4 +1,53 @@
-var description_vis=true;
+var straight_lines = [
+	{
+		"name": "zag_pol",
+	    "title": "Пряма загального положення",
+	    "text": "Жодна з проекцій не паралельна осям.",
+	},
+	{
+		"name": "gor_level",
+	    "title": "Пряма горизонтального рівня",
+	    "text": "Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	},
+	{
+		"name": "front_level",
+	    "title": "Пряма фронтального рівня",
+	    "text": "Пряма фронтального рівня. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	},
+	{
+		"name": "prof_level",
+	    "title": "Пряма профільного рівня",
+	    "text": "Пряма профільного рівня. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	},
+	{
+		"name": "gor_proj",
+	    "title": "Горизонтально-проектуюча пряма",
+	    "text": "Горизонтально-проектуюча пряма. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	},
+	{
+		"name": "front_proj",
+	    "title": "Фронтально-проектуюча пряма",
+	    "text": "Фронтально-проектуюча пряма. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	},
+	{
+		"name": "prof_proj",
+	    "title": "Профільно-проектуюча пряма",
+	    "text": "Профільно-проектуюча пряма. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	}
+	]
+
+var description_vis=false;
+
+var current_straight_line = "zag_pol";
+var current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
+var current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
+
+function update_current(name){
+	current_straight_line = name;
+	current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
+	current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
+}
+
 
 function check(a){
 	if (document.getElementById(`${a}_checkbox`).checked) {
@@ -52,6 +101,8 @@ function to_3d(){
 }
 
 window.onload = function () {
+	console.log(current_title);
+	console.log(current_text);
 	// Показать/спрятать теоретический текст
 	document
 	.getElementById("info_btn")
@@ -59,17 +110,24 @@ window.onload = function () {
 		if(description_vis){
 			document
 			.getElementById("theory_text")
-			.setAttribute("style", "display: block;");
+			.setAttribute("style", "display: none;");
 			description_vis=false;
 		}
 		else{
 			document
 			.getElementById("theory_text")
-			.setAttribute("style", "display: none;");
+			.setAttribute("style", "display: block;");
 			description_vis=true;
 		}
 	});
-
-	// var rad=document.getElementsByName('options');
-	// alert(rad[0])
+	// Изменение прямой
+	document
+	.getElementById('menu_optipns')
+	.addEventListener('click', function(e) {
+	    if (e.target.tagName === 'LI'){
+	      update_current(e.target.id)
+	      document.getElementById("title").innerHTML=(current_title);
+	      document.getElementById("theory_text").innerHTML=(current_text);
+	    }
+	});
 }

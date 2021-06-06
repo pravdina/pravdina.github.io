@@ -43,29 +43,27 @@
     <div style="display: flex; justify-content: space-between;">
       <!-- Название прямой -->
       <div class="mdl-card__title">
-        <h6 class="mdl-card__title-text">Пряма горизонтального рівня</h6>
+        <h6 id="title" class="mdl-card__title-text">Пряма загального положення</h6>
       </div>
       <!-- Меню выбора прямых -->
       <button id="menu_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
         <i class="material-icons">more_vert</i>
       </button>
       <!-- Варианты выбора -->
-      <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
+      <ul id="menu_optipns" class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
       data-mdl-for="menu_btn">
-      <li class="mdl-menu__item">Пряма загального положення</li>
-      <li class="mdl-menu__item">Пряма горизонтального рівня</li>
-      <li class="mdl-menu__item">Пряма фронтального рівня</li>
-      <li class="mdl-menu__item">Пряма профільного рівня</li>
-      <li class="mdl-menu__item">Горизонтально-проектуюча пряма</li>
-      <li class="mdl-menu__item">Фронтально-проектуюча пряма</li>
-      <li class="mdl-menu__item">Профільно-проектуюча пряма</li>
+      <li id="zag_pol" class="mdl-menu__item">Пряма загального положення</li>
+      <li id="gor_level" class="mdl-menu__item">Пряма горизонтального рівня</li>
+      <li id="front_level" class="mdl-menu__item">Пряма фронтального рівня</li>
+      <li id="prof_level" class="mdl-menu__item">Пряма профільного рівня</li>
+      <li id="gor_proj" class="mdl-menu__item">Горизонтально-проектуюча пряма</li>
+      <li id="front_proj" class="mdl-menu__item">Фронтально-проектуюча пряма</li>
+      <li id="prof_proj" class="mdl-menu__item">Профільно-проектуюча пряма</li>
     </ul>
   </div>
   <!-- Теоретический текст про прямую -->
   <div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    Mauris sagittis pellentesque lacus eleifend lacinia... gjffkdkdlsllskskks
-    skskkskskksfkfk fkkfkf kfkfkf bvkbogltfm vlvlgfmmf dlcl
+    Жодна з проекцій не паралельна осям.
   </div>
 </div>
 <!-- Панель управления -->
