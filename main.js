@@ -38,7 +38,7 @@ var straight_lines = [
 
 var description_vis=false;
 
-var current_straight_line = "zag_pol";
+var current_straight_line = "prof_level";
 var current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
 var current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
 
@@ -53,7 +53,7 @@ function check(a){
 	if (document.getElementById(`${a}_checkbox`).checked) {
 		document
 		.getElementById(`${a}`)
-		.setAttribute("gltf-model", `#${a}_glb`); 
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/${a}.glb)`); 
 	}
 	else {
 		document
@@ -85,11 +85,11 @@ function to_3d(){
 	// делаем модель видимой
 	document
 	.getElementById("model")
-	.setAttribute("gltf-model", "#model_glb");
+	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
 	// делаем линии видимыми
 	document
 	.getElementById("lines")
-	.setAttribute("gltf-model", "#lines_glb");
+	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
 	// очищаем анимейшен миксер
 	document
 	.getElementById("planes")
@@ -101,8 +101,11 @@ function to_3d(){
 }
 
 window.onload = function () {
-	console.log(current_title);
-	console.log(current_text);
+	// console.log(current_title);
+	// console.log(current_text);
+	document.getElementById("title").innerHTML=(current_title);
+	document.getElementById("theory_text").innerHTML=(current_text);
+
 	// Показать/спрятать теоретический текст
 	document
 	.getElementById("info_btn")
