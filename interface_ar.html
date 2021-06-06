@@ -20,20 +20,6 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 
 <script src="main.js"></script>
-<script type="text/javascript">
-  function check(a){
-  if (document.getElementById(`${a}_checkbox`).checked) {
-        document
-        .getElementById(`${a}`)
-        .setAttribute("gltf-model", `#${a}_glb`); 
-    }
-    else {
-        document
-        .getElementById(`${a}`)
-        .removeAttribute("gltf-model");
-    }
-}
-</script>
 
 <body style="margin : 0px; overflow: hidden;">
 
@@ -84,6 +70,7 @@
 </div>
 <!-- Панель управления -->
 <div class="control">
+  <!-- Swith -->
   <div class="switches">
     <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="model_checkbox">
       <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true" class="mdl-switch__input">
@@ -94,13 +81,14 @@
       <span class="mdl-switch__label">Лінії</span>
     </label>
   </div>
+  <!-- Radio -->
   <div class="radios">
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-      <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+      <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked onclick="to_2d()>
       <span class="mdl-radio__label">3D</span>
     </label>
     <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-      <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+      <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" onclick="to_2d()">
       <span class="mdl-radio__label">2D</span>
     </label>
   </div>
