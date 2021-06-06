@@ -1,115 +1,117 @@
-  <!DOCTYPE html>
-  <html lang="en">
-  <html>
-  <link rel="stylesheet" type="text/css" href="togle.css">
-  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-  <!-- we import arjs version without NFT but with marker + location based support -->
-  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<link rel="stylesheet" type="text/css" href="togle.css">
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<!-- AR -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
-  <!-- Material Design Lite -->
-  <link rel="stylesheet" href="mdl/material.min.css">
-  <script src="mdl/material.min.js"></script>
-  <!-- Иконочный шрифт -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- Цвет -->
-  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
-  <!-- Шрифт -->
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-  <!-- Кастомизация -->
-  <link rel="stylesheet" type="text/css" href="style.css">
+<!-- Material Design Lite -->
+<link rel="stylesheet" href="mdl/material.min.css">
+<script src="mdl/material.min.js"></script>
+<!-- Иконочный шрифт -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<!-- Цвет -->
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.teal-green.min.css" />
+<!-- Шрифт -->
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<!-- Кастомизация -->
+<link rel="stylesheet" type="text/css" href="style.css">
 
-  <body style="margin : 0px; overflow: hidden;">
+<script src="main.js"></script>
 
-      <!-- Верхняя панель -->
-      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header">
-          <div class="mdl-layout__header-row">
-            <!-- Кнопка домой -->
-            <button id="home_btn" class="mdl-button mdl-js-button mdl-button--icon"
-             onClick='location.href="index.html"'>
-              <i class="material-icons">home</i>
-            </button>
-            <!-- Название темы -->
-            <div class="mdl-layout-title">Положення прямої лінії відносно площин проекцій</div>
-          </div>
-        </header>
-      </div>
-    
-    <!-- Описание -->
-    <div id="description" class="mdl-card mdl-shadow--2dp">
-      <div style="display: flex; justify-content: space-between;">
-        <!-- Название прямой -->
-        <div class="mdl-card__title">
-          <h6 class="mdl-card__title-text">Пряма горизонтального рівня</h6>
+<body style="margin : 0px; overflow: hidden;">
+
+    <!-- Верхняя панель -->
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <!-- Кнопка домой -->
+          <button id="home_btn" class="mdl-button mdl-js-button mdl-button--icon"
+           onClick='location.href="index.html"'>
+            <i class="material-icons">home</i>
+          </button>
+          <!-- Название темы -->
+          <div class="mdl-layout-title">Положення прямої лінії відносно площин проекцій</div>
         </div>
-        <!-- Меню выбора прямых -->
-        <button id="menu_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-          <i class="material-icons">more_vert</i>
-        </button>
-        <!-- Варианты выбора -->
-        <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
-        data-mdl-for="menu_btn">
-        <li class="mdl-menu__item">Пряма загального положення</li>
-        <li class="mdl-menu__item">Пряма горизонтального рівня</li>
-        <li class="mdl-menu__item">Пряма фронтального рівня</li>
-        <li class="mdl-menu__item">Пряма профільного рівня</li>
-        <li class="mdl-menu__item">Горизонтально-проектуюча пряма</li>
-        <li class="mdl-menu__item">Фронтально-проектуюча пряма</li>
-        <li class="mdl-menu__item">Профільно-проектуюча пряма</li>
-      </ul>
+      </header>
     </div>
-    <!-- Теоретический текст про прямую -->
-    <div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris sagittis pellentesque lacus eleifend lacinia... gjffkdkdlsllskskks
-      skskkskskksfkfk fkkfkf kfkfkf bvkbogltfm vlvlgfmmf dlcl
-    </div>
+
+  <!-- Описание -->
+  <div id="description" class="mdl-card mdl-shadow--2dp">
+    <div style="display: flex; justify-content: space-between;">
+      <!-- Название прямой -->
+      <div class="mdl-card__title">
+        <h6 class="mdl-card__title-text">Пряма горизонтального рівня</h6>
+      </div>
+      <!-- Меню выбора прямых -->
+      <button id="menu_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+        <i class="material-icons">more_vert</i>
+      </button>
+      <!-- Варианты выбора -->
+      <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
+      data-mdl-for="menu_btn">
+      <li class="mdl-menu__item">Пряма загального положення</li>
+      <li class="mdl-menu__item">Пряма горизонтального рівня</li>
+      <li class="mdl-menu__item">Пряма фронтального рівня</li>
+      <li class="mdl-menu__item">Пряма профільного рівня</li>
+      <li class="mdl-menu__item">Горизонтально-проектуюча пряма</li>
+      <li class="mdl-menu__item">Фронтально-проектуюча пряма</li>
+      <li class="mdl-menu__item">Профільно-проектуюча пряма</li>
+    </ul>
   </div>
-  <!-- Панель управления -->
-  <div class="control">
-    <div class="switches">
-      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
-        <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
-        <span class="mdl-switch__label">Модель</span>
-      </label>
-      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
-        <input type="checkbox" id="switch-2" class="mdl-switch__input">
-        <span class="mdl-switch__label">Лінії</span>
-      </label>
-    </div>
-    <div class="radios">
-      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
-        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
-        <span class="mdl-radio__label">3D</span>
-      </label>
-      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
-        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
-        <span class="mdl-radio__label">2D</span>
-      </label>
-    </div>
-    <!-- Кнопка для вывода теоретического текста о прямой-->
-    <button id="info_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-      <i class="material-icons">info</i>
-    </button>
+  <!-- Теоретический текст про прямую -->
+  <div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    Mauris sagittis pellentesque lacus eleifend lacinia... gjffkdkdlsllskskks
+    skskkskskksfkfk fkkfkf kfkfkf bvkbogltfm vlvlgfmmf dlcl
   </div>
+</div>
+<!-- Панель управления -->
+<div class="control">
+  <div class="switches">
+    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+      <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+      <span class="mdl-switch__label">Модель</span>
+    </label>
+    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+      <input type="checkbox" id="switch-2" class="mdl-switch__input">
+      <span class="mdl-switch__label">Лінії</span>
+    </label>
+  </div>
+  <div class="radios">
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+      <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+      <span class="mdl-radio__label">3D</span>
+    </label>
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+      <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+      <span class="mdl-radio__label">2D</span>
+    </label>
+  </div>
+  <!-- Кнопка для вывода теоретического текста о прямой-->
+  <button id="info_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+    <i class="material-icons">info</i>
+  </button>
+</div>
 
 
 
 
-  <a-scene
-  arjs
-  embedded
-  renderer="logarithmicDepthBuffer: true;"
-  vr-mode-ui="enabled: false"
-  gesture-detector
-  id="scene"
-  >
-  <a-assets>
-    <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
-    <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
-    <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
-  </a-asset-item>
+<a-scene
+arjs
+embedded
+renderer="logarithmicDepthBuffer: true;"
+vr-mode-ui="enabled: false"
+gesture-detector
+id="scene"
+>
+<a-assets>
+  <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
+  <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
+  <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
+</a-asset-item>
 </a-assets>
 <a-marker
 preset="hiro"
