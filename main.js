@@ -47,15 +47,18 @@ function update_current(name){
 	current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
 	current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
 
-	// document
-	// 	.getElementById("model")
-	// 	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
-	// document
-	// 	.getElementById("lines")
-	// 	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
-	// document
-	// 	.getElementById("planes")
-	// 	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
+	document.getElementById("title").innerHTML=(current_title);
+	document.getElementById("theory_text").innerHTML=(current_text);
+
+	document
+		.getElementById("model")
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
+	document
+		.getElementById("lines")
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
+	document
+		.getElementById("planes")
+		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
 }
 
 
@@ -149,18 +152,16 @@ window.onload = function () {
 	.addEventListener('click', function(e) {
 	    if (e.target.tagName === 'LI'){
 	    	// Обновляем текущую прямую
-	        update_current(e.target.id)
-	        document.getElementById("title").innerHTML=(current_title);
-	        document.getElementById("theory_text").innerHTML=(current_text);
-		    document
-			.getElementById("model")
-			.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
-			document
-				.getElementById("lines")
-				.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
-			document
-				.getElementById("planes")
-				.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
+	        update_current(e.target.id);
+		 //    document
+			// .getElementById("model")
+			// .setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
+			// document
+			// 	.getElementById("lines")
+			// 	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
+			// document
+			// 	.getElementById("planes")
+			// 	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
 	    }
 	});
 }
