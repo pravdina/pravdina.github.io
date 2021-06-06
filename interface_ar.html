@@ -107,12 +107,12 @@ vr-mode-ui="enabled: false"
 gesture-detector
 id="scene"
 >
-<a-assets>
-  <!-- <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item> -->
+<!-- <a-assets>
+  <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
   <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
   <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
 </a-asset-item>
-</a-assets>
+</a-assets> -->
 <a-marker
 preset="hiro"
 raycaster="objects: .clickable"
@@ -124,24 +124,24 @@ id="markerA"
 id="planes"
 gltf-model="src=url(models/prof_level/planes.glb)"
 position="0.5 0.5 0"
-scale="0.5 0.5 0.5"
+scale="0.4 0.4 0.4"
 class="clickable"
 gesture-handler="minScale: 0.1; maxScale: 20"
 >
 </a-entity>
 <a-entity
 id="lines"
-gltf-model="#lines_glb"
+gltf-model="src=url(models/prof_level/lines.glb)"
 position="0.5 0.5 0"
-scale="0.5 0.5 0.5"
+scale="0.4 0.4 0.4"
 class="clickable"
 gesture-handler="minScale: 0.1; maxScale: 20"
 ></a-entity>
 <a-entity
 id="model"
-gltf-model="#model_glb"
+gltf-model="src=url(models/prof_level/model.glb)"
 position="0.5 0.5 0"
-scale="0.5 0.5 0.5"
+scale="0.4 0.4 0.4"
 class="clickable"
 gesture-handler="minScale: 0.1; maxScale: 20"
 ></a-entity>
