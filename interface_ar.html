@@ -20,54 +20,115 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <body style="margin : 0px; overflow: hidden;">
-    <a-scene
-    arjs
-    embedded
-    renderer="logarithmicDepthBuffer: true;"
-    vr-mode-ui="enabled: false"
-    gesture-detector
-    id="scene"
-    >
-    <a-assets>
-      <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
-      <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
-      <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
-    </a-asset-item>
-  </a-assets>
-  <a-marker
-  preset="hiro"
-  raycaster="objects: .clickable"
-  emitevents="true"
-  cursor="fuse: false; rayOrigin: mouse;"
-  id="markerA"
+    <!-- Описание -->
+    <div id="description" class="mdl-card mdl-shadow--2dp">
+      <div style="display: flex; justify-content: space-between;">
+        <!-- Название прямой -->
+        <div class="mdl-card__title">
+          <h6 class="mdl-card__title-text">Пряма горизонтального рівня</h6>
+        </div>
+        <!-- Меню выбора прямых -->
+        <button id="menu_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+          <i class="material-icons">more_vert</i>
+        </button>
+        <!-- Варианты выбора -->
+        <ul class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
+        data-mdl-for="menu_btn">
+        <li class="mdl-menu__item">Пряма загального положення</li>
+        <li class="mdl-menu__item">Пряма горизонтального рівня</li>
+        <li class="mdl-menu__item">Пряма фронтального рівня</li>
+        <li class="mdl-menu__item">Пряма профільного рівня</li>
+        <li class="mdl-menu__item">Горизонтально-проектуюча пряма</li>
+        <li class="mdl-menu__item">Фронтально-проектуюча пряма</li>
+        <li class="mdl-menu__item">Профільно-проектуюча пряма</li>
+      </ul>
+    </div>
+    <!-- Теоретический текст про прямую -->
+    <div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Mauris sagittis pellentesque lacus eleifend lacinia... gjffkdkdlsllskskks
+      skskkskskksfkfk fkkfkf kfkfkf bvkbogltfm vlvlgfmmf dlcl
+    </div>
+  </div>
+  <!-- Панель управления -->
+  <div class="control">
+    <div class="switches">
+      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+        <input type="checkbox" id="switch-1" class="mdl-switch__input" checked>
+        <span class="mdl-switch__label">Модель</span>
+      </label>
+      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+        <input type="checkbox" id="switch-2" class="mdl-switch__input">
+        <span class="mdl-switch__label">Лінії</span>
+      </label>
+    </div>
+    <div class="radios">
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+        <span class="mdl-radio__label">3D</span>
+      </label>
+      <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+        <span class="mdl-radio__label">2D</span>
+      </label>
+    </div>
+    <!-- Кнопка для вывода теоретического текста о прямой-->
+    <button id="info_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+      <i class="material-icons">info</i>
+    </button>
+  </div>
+
+
+
+  
+  <a-scene
+  arjs
+  embedded
+  renderer="logarithmicDepthBuffer: true;"
+  vr-mode-ui="enabled: false"
+  gesture-detector
+  id="scene"
   >
-  <a-entity
-  id="planes"
-  gltf-model="#planes_glb"
-  position="0.5 0.5 0"
-  scale="0.5 0.5 0.5"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  >
-  </a-entity>
-  <a-entity
-  id="lines"
-  gltf-model="#lines_glb"
-  position="0.5 0.5 0"
-  scale="0.5 0.5 0.5"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  ></a-entity>
-  <a-entity
-  id="model"
-  gltf-model="#model_glb"
-  position="0.5 0.5 0"
-  scale="0.5 0.5 0.5"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  ></a-entity>
-  </a-marker>
-  <a-entity camera></a-entity>
-  </a-scene>
+  <a-assets>
+    <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
+    <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
+    <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
+  </a-asset-item>
+</a-assets>
+<a-marker
+preset="hiro"
+raycaster="objects: .clickable"
+emitevents="true"
+cursor="fuse: false; rayOrigin: mouse;"
+id="markerA"
+>
+<a-entity
+id="planes"
+gltf-model="#planes_glb"
+position="0.5 0.5 0"
+scale="0.5 0.5 0.5"
+class="clickable"
+gesture-handler="minScale: 0.1; maxScale: 20"
+>
+</a-entity>
+<a-entity
+id="lines"
+gltf-model="#lines_glb"
+position="0.5 0.5 0"
+scale="0.5 0.5 0.5"
+class="clickable"
+gesture-handler="minScale: 0.1; maxScale: 20"
+></a-entity>
+<a-entity
+id="model"
+gltf-model="#model_glb"
+position="0.5 0.5 0"
+scale="0.5 0.5 0.5"
+class="clickable"
+gesture-handler="minScale: 0.1; maxScale: 20"
+></a-entity>
+</a-marker>
+<a-entity camera></a-entity>
+</a-scene>
 </body>
 </html>
