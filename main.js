@@ -125,9 +125,10 @@ window.onload = function () {
 	.getElementById('menu_optipns')
 	.addEventListener('click', function(e) {
 	    if (e.target.tagName === 'LI'){
-	      update_current(e.target.id)
-	      document.getElementById("title").innerHTML=(current_title);
-	      document.getElementById("theory_text").innerHTML=(current_text);
+	    	// Обновляем текущую прямую
+	        update_current(e.target.id)
+	        document.getElementById("title").innerHTML=(current_title);
+	        document.getElementById("theory_text").innerHTML=(current_text);
 	    }
 	});
 }
