@@ -15,12 +15,6 @@
 	<!-- Шрифт -->
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 	<link rel="stylesheet" type="text/css" href="style.css">
-
-	<!-- Подключаем AR-js -->
-	<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	<script type="text/javascript">
 		var description_vis=true;
 		window.onload = function () {
@@ -46,19 +40,19 @@
 </head>
 <body>
 	<!-- Верхняя панель -->
-<!-- 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 		<header class="mdl-layout__header">
 			<div class="mdl-layout__header-row">
-				Кнопка домой
+				<!-- Кнопка домой -->
 				<button id="home_btn" class="mdl-button mdl-js-button mdl-button--icon"
 				 onClick='location.href="index.html"'>
 					<i class="material-icons">home</i>
 				</button>
-				Название темы
+				<!-- Название темы -->
 				<div class="mdl-layout-title">Положення прямої лінії відносно площин проекцій</div>
 			</div>
 		</header>
-	</div> -->
+	</div>
 	<!-- Описание -->
 	<div id="description" class="mdl-card mdl-shadow--2dp">
 		<div style="display: flex; justify-content: space-between;">
@@ -116,55 +110,5 @@
 		<i class="material-icons">info</i>
 	</button>
 </div>
-<!-- AR -->
-<a-scene
-    arjs
-    embedded
-    renderer="logarithmicDepthBuffer: true;"
-    vr-mode-ui="enabled: false"
-    gesture-detector
-    id="scene"
-    >
-    <a-assets>
-      <a-asset-item id="planes_glb" src="models/prof_level/planes.glb"></a-asset-item>
-      <a-asset-item id="lines_glb" src="models/prof_level/lines.glb"></a-asset-item>
-      <a-asset-item id="model_glb" src="models/prof_level/model.glb"></a-asset-item>
-    </a-asset-item>
-  </a-assets>
-  <a-marker
-  preset="hiro"
-  raycaster="objects: .clickable"
-  emitevents="true"
-  cursor="fuse: false; rayOrigin: mouse;"
-  id="markerA"
-  >
-  <a-entity
-  id="planes"
-  gltf-model="#planes_glb"
-  position="0.5 0.5 0"
-  scale="0.5 0.5 0.5"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  >
-  </a-entity>
-  <a-entity
-  id="lines"
-  gltf-model="#lines_glb"
-  position="0.5 0.5 0"
-  scale="0.5 0.5 0.5"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  ></a-entity>
-  <a-entity
-  id="model"
-  gltf-model="#model_glb"
-  position="0.5 0.5 0"
-  scale="0.5 0.5 0.5"
-  class="clickable"
-  gesture-handler="minScale: 0.1; maxScale: 20"
-  ></a-entity>
-  </a-marker>
-  <a-entity camera></a-entity>
-  </a-scene>
 </body>
 </html>
