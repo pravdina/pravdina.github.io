@@ -13,11 +13,63 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 
 	<style type="text/css">
+		html {
+		    font-size: 18px;
+		}
 		body{
 			background-color: gray;
 			margin: 0;
 			font-family: Roboto;
 		}
+		/*Верхняя панель*/
+		.mdl-layout__header{
+			flex-direction: row;
+			padding: 8px 4px;
+		}
+		.mdl-layout-title{
+			font-size: 1.05rem;
+			width: calc(100vw - 88px);
+			height: auto;
+			padding: 4px 0;
+		}
+		#home_btn{
+			margin: 0 16px;
+		}
+		.mdl-layout__header-row{
+			padding: 0;
+		}
+
+
+		/*Описание*/
+		#description{
+			position: fixed;
+			bottom: 98px;
+			left: 0;
+			padding: 4px;
+			width: 100%;
+		}
+		.mdl-card {
+			min-height: 52px;
+			overflow: visible;
+		}
+		.mdl-card__title{
+			padding-right: 0;
+		}
+		.mdl-card__title-text {
+			font-size: 1.25rem;
+		}
+		.mdl-card__supporting-text {
+			font-size: 1rem;
+			padding-top: 0;
+			line-height: normal;
+		}
+
+		/*Меню с опциями*/
+		#demo-menu-top-right{
+			margin: 16px;
+		}
+
+		/*Панель контроля*/
 		.control{
 			position: fixed;
 			bottom: 0;
@@ -28,78 +80,25 @@
 			padding: 4px 20px;
 			justify-content: space-between;
 			align-items: center;
+			font-size: 1rem;
 		}
 		.switches{
 			display: flex;
 			flex-direction: column;
 			height: 90px;
 			justify-content: space-evenly;
-			/*justify-content: center;*/
 		}
 		.radios{
 			display: flex;
 			flex-direction: column;
 			height: 90px;
 			justify-content: space-evenly;
-			/*justify-content: center;*/
 		}
-		#description{
-			position: fixed;
-			bottom: 98px;
-			left: 0;
-			/*background-color: pink;*/
-			padding: 4px;
-			width: 100%;
+		.mdl-switch__label {
+			font-size: 1rem;
+    line-height: normal;
 		}
-		.mdl-card {
-			min-height: 50px;
-			overflow: visible;
-		}
-		.mdl-card__title{
-			/*padding-bottom: 8px;*/
-		}
-		.mdl-card__title-text {
-			font-size: 20px;
-/*			line-height: 1;
-    letter-spacing: .02em;
-    font-weight: 200;*/
-		}
-		.mdl-card__supporting-text {
-			padding-top: 0;
-		}
-		/*#demo-menu-lower-right{
-			position: absolute;
-			right: 0px;
-		}*/
-		.mdl-layout__header{
-			flex-direction: row;
-			justify-content: space-between;
-			padding: 8px 4px;
-			/*align-content: center;*/
-		}
-		.mdl-layout-title{
-			font-size: 18px;
-			width: calc(100vw - 88px);
-			height: auto;
-			padding: 4px 0;
-		}
-		#home_btn{
-			margin: 4px 16px;
-		}
-		.mdl-layout__header-row{
-			padding: 0;
-		}
-		#demo-menu-top-right{
-			margin: 16px;
-		}
-		.mdl-menu__container is-upgraded{
-			right: 16px; 
-			bottom: 64px; 
-			width: 148.312px; 
-			height: 208px;
-		}
-
-
+		
 	</style>
 	<script type="text/javascript">
 		var description_vis=true;
