@@ -38,7 +38,7 @@ var straight_lines = [
 
 var description_vis=false;
 
-var current_straight_line = "prof_level";
+var current_straight_line = "gor_level";
 var current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
 var current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
 
