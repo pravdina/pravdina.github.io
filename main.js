@@ -81,6 +81,10 @@ function to_2d(){
 	document
 		.getElementById("planes")
 		.setAttribute("animation-mixer", "clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1");
+
+	// Чекбоксы - имитация нажатия
+	document.getElementById("model_checkbox").click();
+	document.getElementById("lines_checkbox").click();
 }
 
 function to_3d(){
@@ -102,7 +106,12 @@ function to_3d(){
 		document
 			.getElementById("lines")
 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
-		}, 4500);	
+
+		// Чекбоксы - имитация нажатия
+		document.getElementById("model_checkbox").click();
+		document.getElementById("lines_checkbox").click();
+
+		}, 5000);	
 	
 }
 
