@@ -92,14 +92,18 @@ function to_3d(){
 	document
 		.getElementById("planes")
 		.setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
-	// делаем модель видимой
-	document
-		.getElementById("model")
-		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
-	// делаем линии видимыми
-	document
-		.getElementById("lines")
-		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+
+	setTimeout(function() { 
+		// делаем модель видимой
+		document
+			.getElementById("model")
+			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
+		// делаем линии видимыми
+		document
+			.getElementById("lines")
+			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+	}, 1000);	
+	
 }
 
 window.onload = function () {
