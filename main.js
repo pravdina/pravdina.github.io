@@ -82,14 +82,6 @@ function to_2d(){
 }
 
 function to_3d(){
-	// делаем модель видимой
-	document
-	.getElementById("model")
-	.setAttribute("gltf-model", `models/${current_straight_line}/model.glb`);
-	// делаем линии видимыми
-	document
-	.getElementById("lines")
-	.setAttribute("gltf-model", `models/${current_straight_line}/lines.glb`);
 	// очищаем анимейшен миксер
 	document
 	.getElementById("planes")
@@ -98,6 +90,14 @@ function to_3d(){
 	document
 	.getElementById("planes")
 	.setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
+	// делаем модель видимой
+	document
+	.getElementById("model")
+	.setAttribute("gltf-model", `models/${current_straight_line}/model.glb`);
+	// делаем линии видимыми
+	document
+	.getElementById("lines")
+	.setAttribute("gltf-model", `models/${current_straight_line}/lines.glb`);
 }
 
 window.onload = function () {
@@ -139,8 +139,8 @@ window.onload = function () {
 	.addEventListener('click', function(e) {
 	    if (e.target.tagName === 'LI'){
 	    	// Обновляем текущую прямую
-	        update_current(e.target.id);
-		document.getElementById("title").innerHTML=(current_title);
+	update_current(e.target.id);
+	document.getElementById("title").innerHTML=(current_title);
 	document.getElementById("theory_text").innerHTML=(current_text);
 
 	document
