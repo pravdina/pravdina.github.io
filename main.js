@@ -39,6 +39,7 @@ var straight_lines = [
 	]
 
 var description_vis=false;
+var mode_3d = true;
 
 var current_straight_line = "zag_pol";
 var current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
@@ -65,61 +66,67 @@ function check(a){
 }
 
 function to_2d(){
-	// удаляем модель
-	document
-		.getElementById("model")
-		.removeAttribute("gltf-model");
-	// удаляем вспомогательные линии
-	document
-		.getElementById("lines")
-		.removeAttribute("gltf-model");
-	// очищаем анимейшен миксер
-	document
-		.getElementById("planes")
-		.removeAttribute("animation-mixer"); 
-	// назначаем новый анимейшен миксер
-	document
-		.getElementById("planes")
-		.setAttribute("animation-mixer", "clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1");
+	// В 2D режим можно перейти, только если в данный момент включен 3D режим
+	if(mode_3d){
+		// удаляем модель
+		document
+			.getElementById("model")
+			.removeAttribute("gltf-model");
+		// удаляем вспомогательные линии
+		document
+			.getElementById("lines")
+			.removeAttribute("gltf-model");
+		// очищаем анимейшен миксер
+		document
+			.getElementById("planes")
+			.removeAttribute("animation-mixer"); 
+		// назначаем новый анимейшен миксер
+		document
+			.getElementById("planes")
+			.setAttribute("animation-mixer", "clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1");
 
-	// Чекбоксы должны ВЫКЛЮЧИТЬСЯ (то есть если они нажаты, то осуществить имитацию нажатия)
-		if(document.getElementById("model_checkbox").checked){
-			document.getElementById("model_checkbox").click();
-		}
-		if(document.getElementById("lines_checkbox").checked){
-			document.getElementById("lines_checkbox").click();
-		}
+		// Чекбоксы должны ВЫКЛЮЧИТЬСЯ (то есть если они нажаты, то осуществить имитацию нажатия)
+			if(document.getElementById("model_checkbox").checked){
+				document.getElementById("model_checkbox").click();
+			}
+			if(document.getElementById("lines_checkbox").checked){
+				document.getElementById("lines_checkbox").click();
+			}
+	}
 }
 
 function to_3d(){
-	// очищаем анимейшен миксер
-	document
-		.getElementById("planes")
-		.removeAttribute("animation-mixer"); 
-	// назначаем новый анимейшен миксер
-	document
-		.getElementById("planes")
-		.setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
-
-	setTimeout(function() { 
-		// делаем модель видимой
+	// В 3D режим можно перейти, только если в данный момент включен 2D режим, то есть mode_3d=false
+	if(!mode_3d){
+		// очищаем анимейшен миксер
 		document
-			.getElementById("model")
-			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
-		// делаем линии видимыми
+			.getElementById("planes")
+			.removeAttribute("animation-mixer"); 
+		// назначаем новый анимейшен миксер
 		document
-			.getElementById("lines")
-			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+			.getElementById("planes")
+			.setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
 
-		// Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
-		if(!document.getElementById("model_checkbox").checked){
-			document.getElementById("model_checkbox").click();
-		}
-		if(!document.getElementById("lines_checkbox").checked){
-			document.getElementById("lines_checkbox").click();
-		}
+		setTimeout(function() { 
+			// делаем модель видимой
+			document
+				.getElementById("model")
+				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
+			// делаем линии видимыми
+			document
+				.getElementById("lines")
+				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
 
-		}, 5000);	
+			// Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
+			if(!document.getElementById("model_checkbox").checked){
+				document.getElementById("model_checkbox").click();
+			}
+			if(!document.getElementById("lines_checkbox").checked){
+				document.getElementById("lines_checkbox").click();
+			}
+
+			}, 5000);
+	}	
 	
 }
 
