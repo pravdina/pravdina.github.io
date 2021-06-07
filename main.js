@@ -82,14 +82,6 @@ function to_2d(){
 }
 
 function to_3d(){
-	// очищаем анимейшен миксер
-	document
-	.getElementById("planes")
-	.removeAttribute("animation-mixer"); 
-	// назначаем новый анимейшен миксер
-	document
-	.getElementById("planes")
-	.setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
 	// делаем модель видимой
 	document
 	.getElementById("model")
@@ -98,6 +90,14 @@ function to_3d(){
 	document
 	.getElementById("lines")
 	.setAttribute("gltf-model", `models/${current_straight_line}/lines.glb`);
+	// очищаем анимейшен миксер
+	document
+	.getElementById("planes")
+	.removeAttribute("animation-mixer"); 
+	// назначаем новый анимейшен миксер
+	document
+	.getElementById("planes")
+	.setAttribute("animation-mixer", "clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1");
 }
 
 window.onload = function () {
