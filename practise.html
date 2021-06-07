@@ -25,76 +25,50 @@
 
 <body style="margin : 0px; overflow: hidden;">
 
-    <!-- Верхняя панель -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <!-- Кнопка домой -->
-          <button id="home_btn" class="mdl-button mdl-js-button mdl-button--icon"
-           onClick='location.href="index.html"'>
-            <i class="material-icons">home</i>
-          </button>
-          <!-- Название темы -->
-          <div class="mdl-layout-title">Практичні завдання</div>
-        </div>
-      </header>
-    </div>
-
-  <!-- Описание -->
-  <div id="description" class="mdl-card mdl-shadow--2dp">
-    <div style="display: flex; justify-content: space-between;">
-      <!-- Название прямой -->
-      <div class="mdl-card__title">
-        <h6 id="title" class="mdl-card__title-text"></h6>
-      </div>
-      <!-- Меню выбора прямых -->
-      <button id="menu_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-        <i class="material-icons">more_vert</i>
+  <!-- Верхняя панель -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header">
+      <div class="mdl-layout__header-row">
+        <!-- Кнопка домой -->
+        <button id="home_btn" class="mdl-button mdl-js-button mdl-button--icon"
+        onClick='location.href="index.html"'>
+        <i class="material-icons">home</i>
       </button>
-      <!-- Варианты выбора -->
-      <ul id="menu_optipns" class="mdl-menu mdl-menu--top-right mdl-js-menu mdl-js-ripple-effect"
-      data-mdl-for="menu_btn">
-      <li id="zag_pol" class="mdl-menu__item mdl-menu__item--full-bleed-divider">Пряма загального положення</li>
-      <li id="gor_level" class="mdl-menu__item">Пряма горизонтального рівня</li>
-      <li id="front_level" class="mdl-menu__item">Пряма фронтального рівня</li>
-      <li id="prof_level" class="mdl-menu__item mdl-menu__item--full-bleed-divider">Пряма профільного рівня</li>
-      <li id="gor_proj" class="mdl-menu__item">Горизонтально-проектуюча пряма</li>
-      <li id="front_proj" class="mdl-menu__item">Фронтально-проектуюча пряма</li>
-      <li id="prof_proj" class="mdl-menu__item">Профільно-проектуюча пряма</li>
-    </ul>
-  </div>
-  <!-- Теоретический текст про прямую -->
-  <div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
-  </div>
+      <!-- Название темы -->
+      <div class="mdl-layout-title">Практичні завдання</div>
+    </div>
+  </header>
+</div>
+
+<!-- Описание -->
+
+<!-- Теоретический текст про прямую -->
+<div id="theory_text" class="mdl-card__supporting-text" style="display: none;">
+</div>
 </div>
 <!-- Панель управления -->
 <div class="control">
-  <!-- Swith -->
-  <div class="switches">
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="model_checkbox">
-      <input type="checkbox" id="model_checkbox" onchange="check('model')" checked="true" class="mdl-switch__input">
-      <span class="mdl-switch__label">Модель2</span>
-    </label>
-    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="lines_checkbox">
-      <input input type="checkbox" id="lines_checkbox" onchange="check('lines')" checked="true" class="mdl-switch__input">
-      <span class="mdl-switch__label">Лінії </span>
-    </label>
-  </div> 
-  <!-- Radio -->
-  <div class="radios">
-    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="to_3d_radio">
-      <input type="radio" id="to_3d_radio" class="mdl-radio__button" name="options" value="1" checked onclick="to_3d()">
-      <span class="mdl-radio__label">3D</span>
-    </label>
-    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="to_2d_radio">
-      <input type="radio" id="to_2d_radio" class="mdl-radio__button" name="options" value="2" onclick="to_2d()">
-      <span class="mdl-radio__label">2D</span>
-    </label>
-  </div>
-  <!-- Кнопка для вывода теоретического текста о прямой-->
-  <button id="info_btn" class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-    <i class="material-icons">info</i>
-  </button>
+
+<!-- Номер задания -->
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 25vw">
+  <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="task_number">
+  <label class="mdl-textfield__label" for="task_number">Завдання</label>
+  <span class="mdl-textfield__error">Введите, пожалуйста, номер</span>
+</div>
+
+<!-- Номер варианта -->
+<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 25vw">
+  <input class="mdl-textfield__input" type="text" pattern="[0-9]*" id="var_number">
+  <label class="mdl-textfield__label" for="task_number">Варіант</label>
+  <span class="mdl-textfield__error">Введите, пожалуйста, номер</span>
+</div>
+
+
+<!-- Кнопка для вывода модели по заданому заданию и варианту-->
+<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+  OK
+</button>
+
 </div>
 
 <a-scene
