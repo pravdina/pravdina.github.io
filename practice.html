@@ -21,7 +21,29 @@
 <!-- Кастомизация -->
 <link rel="stylesheet" type="text/css" href="style.css">
 
-<script src="main.js"></script>
+<!-- <script src="practiсe.js"></script> -->
+<script type="text/javascript">
+  var path_before = "models/practice";
+
+  window.onload = function () {
+    document
+      .getElementById("main_btn")
+      .addEventListener("click", function () {
+        var task_number = document.getElementById("task_number").value;
+        var var_number = document.getElementById("var_number").value;
+
+        // if(task_number&&var_number){
+        //   alert("оба поля заполнены")
+        // } 
+        // else{
+        //   alert("где-то не дозаполнили")
+        // }
+        document
+          .getElementById("planes")
+          .setAttribute("gltf-model", `${path_before}/task_${task_number}/var_${var_number}.glb`);
+    });
+}
+</script>
 
 <body style="margin : 0px; overflow: hidden;">
 
@@ -65,7 +87,7 @@
 
 
 <!-- Кнопка для вывода модели по заданому заданию и варианту-->
-<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+<button id="main_btn" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
   OK
 </button>
 
@@ -87,10 +109,10 @@ cursor="fuse: false; rayOrigin: mouse;"
 id="markerA"
 >
 <a-entity
-id="planes"
+id="model"
 gltf-model="models/1_cone_whole.glb"
-position="0.5 0.5 0"
-scale="0.4 0.4 0.4"
+position="0 0 0"
+scale="1 1 1"
 class="clickable"
 gesture-handler="minScale: 0.1; maxScale: 20"
 >
