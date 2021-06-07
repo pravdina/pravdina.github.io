@@ -31,15 +31,9 @@
       .addEventListener("click", function () {
         var task_number = document.getElementById("task_number").value;
         var var_number = document.getElementById("var_number").value;
-
-        // if(task_number&&var_number){
-        //   alert("оба поля заполнены")
-        // } 
-        // else{
-        //   alert("где-то не дозаполнили")
-        // }
+        // alert(`${path_before}/task_${task_number}/var_${var_number}.glb`);
         document
-          .getElementById("planes")
+          .getElementById("model")
           .setAttribute("gltf-model", `${path_before}/task_${task_number}/var_${var_number}.glb`);
     });
 }
@@ -57,7 +51,7 @@
         <i class="material-icons">home</i>
       </button>
       <!-- Название темы -->
-      <div class="mdl-layout-title">Практичні завдання</div>
+      <div class="mdl-layout-title">Практичні завдання2</div>
     </div>
   </header>
 </div>
