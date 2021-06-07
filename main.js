@@ -102,7 +102,7 @@ function to_3d(){
 		document
 			.getElementById("lines")
 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
-	}, 1000);	
+		}, 3000);	
 	
 }
 
