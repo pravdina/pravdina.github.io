@@ -1,4 +1,4 @@
-var path_before = "models"
+var path_before = "models/tema_1"
 
 var straight_lines = [
 	{
