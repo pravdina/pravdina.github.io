@@ -53,7 +53,7 @@ function check(a){
 	if (document.getElementById(`${a}_checkbox`).checked) {
 		document
 		.getElementById(`${a}`)
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/${a}.glb)`); 
+		.setAttribute("gltf-model", `models/${current_straight_line}/${a}.glb`); 
 	}
 	else {
 		document
@@ -85,11 +85,11 @@ function to_3d(){
 	// делаем модель видимой
 	document
 	.getElementById("model")
-	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
+	.setAttribute("gltf-model", `models/${current_straight_line}/model.glb`);
 	// делаем линии видимыми
 	document
 	.getElementById("lines")
-	.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
+	.setAttribute("gltf-model", `models/${current_straight_line}/lines.glb`);
 	// очищаем анимейшен миксер
 	document
 	.getElementById("planes")
@@ -108,13 +108,13 @@ window.onload = function () {
 
 	document
 		.getElementById("model")
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
+		.setAttribute("gltf-model", `models/${current_straight_line}/model.glb`);
 	document
 		.getElementById("lines")
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
+		.setAttribute("gltf-model", `models/${current_straight_line}/lines.glb`);
 	document
 		.getElementById("planes")
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
+		.setAttribute("gltf-model", `models/${current_straight_line}/planes.glb`);
 
 	// Показать/спрятать теоретический текст
 	document
@@ -145,13 +145,13 @@ window.onload = function () {
 
 	document
 		.getElementById("model")
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/model.glb)`);
+		.setAttribute("gltf-model", `models/${current_straight_line}/model.glb`);
 	document
 		.getElementById("lines")
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/lines.glb)`);
+		.setAttribute("gltf-model", `models/${current_straight_line}/lines.glb`);
 	document
 		.getElementById("planes")
-		.setAttribute("gltf-model", `src=url(models/${current_straight_line}/planes.glb)`);
+		.setAttribute("gltf-model", `models/${current_straight_line}/planes.glb`);
 	}
 	});
 }
