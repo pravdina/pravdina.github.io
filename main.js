@@ -82,9 +82,13 @@ function to_2d(){
 		.getElementById("planes")
 		.setAttribute("animation-mixer", "clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1");
 
-	// Чекбоксы - имитация нажатия
-	document.getElementById("model_checkbox").click();
-	document.getElementById("lines_checkbox").click();
+	// Чекбоксы должны ВЫКЛЮЧИТЬСЯ (то есть если они нажаты, то осуществить имитацию нажатия)
+		if(document.getElementById("model_checkbox").checked){
+			document.getElementById("model_checkbox").click();
+		}
+		if(document.getElementById("lines_checkbox").checked){
+			document.getElementById("lines_checkbox").click();
+		}
 }
 
 function to_3d(){
@@ -107,9 +111,13 @@ function to_3d(){
 			.getElementById("lines")
 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
 
-		// Чекбоксы - имитация нажатия
-		document.getElementById("model_checkbox").click();
-		document.getElementById("lines_checkbox").click();
+		// Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
+		if(!document.getElementById("model_checkbox").checked){
+			document.getElementById("model_checkbox").click();
+		}
+		if(!document.getElementById("lines_checkbox").checked){
+			document.getElementById("lines_checkbox").click();
+		}
 
 		}, 5000);	
 	
