@@ -92,6 +92,7 @@ function to_2d(){
 			if(document.getElementById("lines_checkbox").checked){
 				document.getElementById("lines_checkbox").click();
 			}
+	mode_3d = false;
 	}
 }
 
