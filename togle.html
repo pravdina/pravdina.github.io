@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="togle.css">
+	<script type="text/javascript">
+
+		function check_model() {
+
+			if (document.getElementById('model').checked) {
+				alert('Выбран');
+			}
+			else {
+				alert ('Не выбран');
+			}
+			
+		}
+	</script>
+</head>
+<body>
+
+	<!-- Rounded switch -->
+	Модель:
+	<label class="switch">
+		<input type="checkbox" id="model" onchange="check_model()">
+		<span class="slider round"></span>
+	</label>
+
+
+</body>
+</html>

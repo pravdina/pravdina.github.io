@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+  <!-- we import arjs version without NFT but with marker + location based support -->
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+  <body style="margin : 0px; overflow: hidden;">
+    <a-scene embedded arjs>
+
+      <a-assets>
+        <a-asset-item id="frog_obj" src="models/frog2.obj"></a-asset-item>
+        <a-asset-item id="frog_mtl" src="models/frog2.mtl"></a-asset-item>
+      </a-assets>
+      <a-marker preset="hiro">
+        <a-entity
+          position="0 0 0"
+          scale="0.5 0.5 0.5"
+          obj-model="obj: #frog_obj; mtl: #frog_mtl"
+        ></a-entity>
+      </a-marker>
+      <a-entity camera></a-entity>
+    </a-scene>
+  </body>
+</html>
