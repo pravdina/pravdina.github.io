@@ -9,7 +9,7 @@ var straight_lines = [
 {
 	"name": "gor_level",
 	"title": "Пряма горизонтального рівня",
-	"text": "Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	"text": "Пряма паралельна площин π<sub>1</sub>. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку: A<sub>1</sub>B<sub>1</sub> = AB.",
 },
 {
 	"name": "front_level",
@@ -50,7 +50,6 @@ function update_current(name){
 	current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
 	current_text = straight_lines.find(current_text => current_text.name === current_straight_line).text;
 }
-
 
 function check(a){
 	if (document.getElementById(`${a}_checkbox`).checked) {
@@ -169,33 +168,34 @@ window.onload = function () {
 	.getElementById('menu_optipns')
 	.addEventListener('click', function(e) {
 		if (e.target.tagName === 'LI'){
-	// Обновляем текущую прямую
-	update_current(e.target.id);
-	// Меняем заголовок и описание
-	document.getElementById("title").innerHTML=(current_title);
-	document.getElementById("theory_text").innerHTML=(current_text);
-	// Сначала появляются плоскости, потом модель, потом линии
-	document
-	.getElementById("planes")
-	.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
-	document
-	.getElementById("model")
-	.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
-	document
-	.getElementById("lines")
-	.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+		// Обновляем текущую прямую
+		update_current(e.target.id);
+		// Меняем заголовок и описание
+		document.getElementById("title").innerHTML=(current_title);
+		document.getElementById("theory_text").innerHTML=(current_text);
+		
+		// Сначала появляются плоскости, потом модель, потом линии
+		document
+		.getElementById("planes")
+		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
+		document
+		.getElementById("model")
+		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
+		document
+		.getElementById("lines")
+		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
 
-	// Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они нажаты, то осуществить имитацию нажатия)
-	if(!document.getElementById("model_checkbox").checked){
-		document.getElementById("model_checkbox").click();
-	}
-	if(!document.getElementById("lines_checkbox").checked){
-		document.getElementById("lines_checkbox").click();
-	}
-	if(!document.getElementById("to_3d_radio").checked){
-		document.getElementById("to_3d_radio").click();
-	}
-	mode_3d = true;
-	}
+		// Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
+		if(!document.getElementById("model_checkbox").checked){
+			document.getElementById("model_checkbox").click();
+		}
+		if(!document.getElementById("lines_checkbox").checked){
+			document.getElementById("lines_checkbox").click();
+		}
+		// if(!document.getElementById("to_3d_radio").checked){
+		// 	document.getElementById("to_3d_radio").click();
+		// }
+		mode_3d = true;
+		}
 });
 }
