@@ -145,7 +145,6 @@ window.onload = function () {
 	document
 	.getElementById("lines")
 	.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
-	
 
 	// Показать/спрятать теоретический текст
 	document
@@ -164,6 +163,7 @@ window.onload = function () {
 			description_vis=true;
 		}
 	});
+
 	// Изменение прямой
 	document
 	.getElementById('menu_optipns')
@@ -184,6 +184,18 @@ window.onload = function () {
 	document
 	.getElementById("lines")
 	.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
-}
+
+	// Чекбоксы должны ВЫКЛЮЧИТЬСЯ, так как появиться все (то есть если они нажаты, то осуществить имитацию нажатия)
+	if(document.getElementById("model_checkbox").checked){
+		document.getElementById("model_checkbox").click();
+	}
+	if(document.getElementById("lines_checkbox").checked){
+		document.getElementById("lines_checkbox").click();
+	}
+	if(document.getElementById("to_3d_radio").checked){
+		document.getElementById("to_3d_radio").click();
+	}
+	mode_3d = true;
+	}
 });
 }
