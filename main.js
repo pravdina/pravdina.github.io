@@ -40,8 +40,6 @@ var straight_lines = [
 
 var description_vis=false;
 var mode_3d = true;
-// переменная отвечающая за то, будет ли проигрываться анимация складывания чертежа в 3д
-var animation_to_3d_boolean=true;
 
 var current_straight_line = "zag_pol";
 var current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
@@ -167,33 +165,6 @@ window.onload = function () {
 		}
 	});
 
-	// 3D radio click function
-	// что происходит при нажатии на радио кнопку с 3D
-
-	// document
-	// .getElementById("to_3d_radio")
-	// .addEventListener("click", function () {
-	// 	if(animation_to_3d_boolean){
-	// 		to_3d()
-	// 	}
-	// 	else{
-	// 		// Сначала появляются плоскости, потом модель, потом линии
-	// 		// просто выводим все без анимации
-	// 		document
-	// 			.getElementById("planes")
-	// 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
-	// 		document
-	// 			.getElementById("model")
-	// 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
-	// 		document
-	// 			.getElementById("lines")
-	// 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
-	// 		mode_3d = true;
-	// 		// делаем анимацию опять доступной
-	// 		animation_to_3d_boolean=true;
-	// 	}
-	// }
-
 	// Изменение прямой
 	document
 	.getElementById('menu_optipns')
@@ -204,9 +175,19 @@ window.onload = function () {
 		// Меняем заголовок и описание
 		document.getElementById("title").innerHTML=(current_title);
 		document.getElementById("theory_text").innerHTML=(current_text);
-		
-		
 
+		// Сначала появляются плоскости, потом модель, потом линии
+		// просто выводим все без анимации
+		document
+			.getElementById("planes")
+			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
+		document
+			.getElementById("model")
+			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
+		document
+			.getElementById("lines")
+			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+		
 		// Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
 		if(!document.getElementById("model_checkbox").checked){
 			document.getElementById("model_checkbox").click();
@@ -214,11 +195,13 @@ window.onload = function () {
 		if(!document.getElementById("lines_checkbox").checked){
 			document.getElementById("lines_checkbox").click();
 		}
+		
+		mode_3d = true;
 		// делаем анимацию не доступной из выбора меню прямой
 		// animation_to_3d_boolean=false;
-		if(!document.getElementById("to_3d_radio").checked){
-			document.getElementById("to_3d_radio").click();
-		}
+		// if(!document.getElementById("to_3d_radio").checked){
+		// 	document.getElementById("to_3d_radio").click();
+		// }
 		}
 });
 }
