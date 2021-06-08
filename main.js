@@ -185,14 +185,14 @@ window.onload = function () {
 	.getElementById("lines")
 	.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
 
-	// Чекбоксы должны ВЫКЛЮЧИТЬСЯ, так как появиться все (то есть если они нажаты, то осуществить имитацию нажатия)
-	if(document.getElementById("model_checkbox").checked){
+	// Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они нажаты, то осуществить имитацию нажатия)
+	if(!document.getElementById("model_checkbox").checked){
 		document.getElementById("model_checkbox").click();
 	}
-	if(document.getElementById("lines_checkbox").checked){
+	if(!document.getElementById("lines_checkbox").checked){
 		document.getElementById("lines_checkbox").click();
 	}
-	if(document.getElementById("to_3d_radio").checked){
+	if(!document.getElementById("to_3d_radio").checked){
 		document.getElementById("to_3d_radio").click();
 	}
 	mode_3d = true;
