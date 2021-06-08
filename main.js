@@ -170,29 +170,29 @@ window.onload = function () {
 	// 3D radio click function
 	// что происходит при нажатии на радио кнопку с 3D
 
-	document
-	.getElementById("to_3d_radio")
-	.addEventListener("click", function () {
-		if(animation_to_3d_boolean){
-			to_3d()
-		}
-		else{
-			// Сначала появляются плоскости, потом модель, потом линии
-			// просто выводим все без анимации
-			document
-				.getElementById("planes")
-				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
-			document
-				.getElementById("model")
-				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
-			document
-				.getElementById("lines")
-				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
-			mode_3d = true;
-			// делаем анимацию опять доступной
-			animation_to_3d_boolean=true;
-		}
-	}
+	// document
+	// .getElementById("to_3d_radio")
+	// .addEventListener("click", function () {
+	// 	if(animation_to_3d_boolean){
+	// 		to_3d()
+	// 	}
+	// 	else{
+	// 		// Сначала появляются плоскости, потом модель, потом линии
+	// 		// просто выводим все без анимации
+	// 		document
+	// 			.getElementById("planes")
+	// 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
+	// 		document
+	// 			.getElementById("model")
+	// 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
+	// 		document
+	// 			.getElementById("lines")
+	// 			.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+	// 		mode_3d = true;
+	// 		// делаем анимацию опять доступной
+	// 		animation_to_3d_boolean=true;
+	// 	}
+	// }
 
 	// Изменение прямой
 	document
@@ -215,7 +215,7 @@ window.onload = function () {
 			document.getElementById("lines_checkbox").click();
 		}
 		// делаем анимацию не доступной из выбора меню прямой
-		animation_to_3d_boolean=false;
+		// animation_to_3d_boolean=false;
 		if(!document.getElementById("to_3d_radio").checked){
 			document.getElementById("to_3d_radio").click();
 		}
