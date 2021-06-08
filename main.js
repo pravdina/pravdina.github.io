@@ -9,37 +9,39 @@ var straight_lines = [
 {
 	"name": "gor_level",
 	"title": "Пряма горизонтального рівня",
-	"text": "Пряма паралельна площин π<sub>1</sub>. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку: A<sub>1</sub>B<sub>1</sub> = AB.",
+	"text": "Пряма паралельна площині π<sub>1</sub>. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку: A<sub>1</sub>B<sub>1</sub> = AB.",
 },
 {
 	"name": "front_level",
 	"title": "Пряма фронтального рівня",
-	"text": "Пряма фронтального рівня. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	"text": "Пряма паралельна площині π<sub>2</sub>. Горизонтальна та профільна проекції паралельні осям, фронтальна проекція дорівнює самому відрізку: A<sub>2</sub>B<sub>2</sub> = AB.",
 },
 {
 	"name": "prof_level",
 	"title": "Пряма профільного рівня",
-	"text": "Пряма профільного рівня. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	"text": "Пряма паралельна площині π<sub>3</sub>. Горизонтальна та фронтальна проекції паралельні осям, профільна проекція дорівнює самому відрізку: A<sub>3</sub>B<sub>3</sub> = AB.",
 },
 {
 	"name": "gor_proj",
 	"title": "Горизонтально-проектуюча пряма",
-	"text": "Горизонтально-проектуюча пряма. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	"text": "Пряма перпендикулярна площині π<sub>1</sub>, паралельна площинам π<sub>2</sub> та π<sub>3</sub>. Проекція на площині π<sub>1</sub> представить собою точку, фронтальна та профільна проекції дорівнюють самому відрізку.",
 },
 {
 	"name": "front_proj",
 	"title": "Фронтально-проектуюча пряма",
-	"text": "Фронтально-проектуюча пряма. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	"text": "Пряма перпендикулярна площині π<sub>2</sub>, паралельна площинам π<sub>1</sub> та π<sub>3</sub>. Проекція на площині π<sub>2</sub> представить собою точку, горизонтальна та профільна проекції дорівнюють самому відрізку.",
 },
 {
 	"name": "prof_proj",
 	"title": "Профільно-проектуюча пряма",
-	"text": "Профільно-проектуюча пряма. Фронтальна та профільна проекції паралельні осям, горизонтальна проекція дорівнює самому відрізку.",
+	"text": "Пряма перпендикулярна площині π<sub>3</sub>, паралельна площинам π<sub>1</sub> та π<sub>2</sub>. Проекція на площині π<sub>3</sub> представить собою точку, горизонтальна та фронтальна проекції дорівнюють самому відрізку.",
 }
 ]
 
 var description_vis=false;
 var mode_3d = true;
+// переменная отвечающая за то, будет ли проигрываться анимация складывания чертежа в 3д
+var animation_to_3d_boolean=true;
 
 var current_straight_line = "zag_pol";
 var current_title = straight_lines.find(current_title => current_title.name === current_straight_line).title;
@@ -131,6 +133,8 @@ function to_3d(){
 	
 }
 
+
+
 window.onload = function () {
 	document.getElementById("title").innerHTML=(current_title);
 	document.getElementById("theory_text").innerHTML=(current_text);
@@ -163,6 +167,33 @@ window.onload = function () {
 		}
 	});
 
+	// 3D radio click function
+	// что происходит при нажатии на радио кнопку с 3D
+
+	document
+	.getElementById("to_3d_radio")
+	.addEventListener("click", function () {
+		if(animation_to_3d_boolean){
+			to_3d()
+		}
+		else{
+			// Сначала появляются плоскости, потом модель, потом линии
+			// просто выводим все без анимации
+			document
+				.getElementById("planes")
+				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
+			document
+				.getElementById("model")
+				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
+			document
+				.getElementById("lines")
+				.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+			mode_3d = true;
+			// делаем анимацию опять доступной
+			animation_to_3d_boolean=true;
+		}
+	}
+
 	// Изменение прямой
 	document
 	.getElementById('menu_optipns')
@@ -174,16 +205,7 @@ window.onload = function () {
 		document.getElementById("title").innerHTML=(current_title);
 		document.getElementById("theory_text").innerHTML=(current_text);
 		
-		// Сначала появляются плоскости, потом модель, потом линии
-		document
-		.getElementById("planes")
-		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/planes.glb`);
-		document
-		.getElementById("model")
-		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/model.glb`);
-		document
-		.getElementById("lines")
-		.setAttribute("gltf-model", `${path_before}/${current_straight_line}/lines.glb`);
+		
 
 		// Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
 		if(!document.getElementById("model_checkbox").checked){
@@ -192,10 +214,11 @@ window.onload = function () {
 		if(!document.getElementById("lines_checkbox").checked){
 			document.getElementById("lines_checkbox").click();
 		}
-		// if(!document.getElementById("to_3d_radio").checked){
-		// 	document.getElementById("to_3d_radio").click();
-		// }
-		mode_3d = true;
+		// делаем анимацию не доступной из выбора меню прямой
+		animation_to_3d_boolean=false;
+		if(!document.getElementById("to_3d_radio").checked){
+			document.getElementById("to_3d_radio").click();
+		}
 		}
 });
 }
