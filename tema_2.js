@@ -1,6 +1,6 @@
-const path_before = 'models/tema_1';
-
-const straight_lines = [
+/* eslint-disable no-shadow */
+const pathBefore = 'models/tema_1';
+const straightLines = [
   {
     name: 'zag_pol',
     title: 'Пряма загального положення',
@@ -38,42 +38,47 @@ const straight_lines = [
   },
 ];
 
-let description_vis = false;
-let mode_3d = true;
+let descriptionVis = false;
+let mode3D = true;
 
-let current_straight_line = 'zag_pol';
-let current_title = straight_lines.find((current_title) => current_title.name === current_straight_line).title;
-let current_text = straight_lines.find((current_text) => current_text.name === current_straight_line).text;
+let currentStraightLine = 'zag_pol';
+let currentTitle = straightLines.find(
+  (currentTitle) => currentTitle.name === currentStraightLine,
+).title;
+let currentText = straightLines.find(
+  (currentText) => currentText.name === currentStraightLine,
+).text;
 
-function update_current(name) {
-  current_straight_line = name;
-  current_title = straight_lines.find((current_title) => current_title.name === current_straight_line).title;
-  current_text = straight_lines.find((current_text) => current_text.name === current_straight_line).text;
+function updateCurrent(name) {
+  currentStraightLine = name;
+  currentTitle = straightLines.find(
+    (currentTitle) => currentTitle.name === currentStraightLine,
+  ).title;
+  currentText = straightLines.find(
+    (currentText) => currentText.name === currentStraightLine,
+  ).text;
 }
 
 function check(a) {
   if (document.getElementById(`${a}_checkbox`).checked) {
     document
       .getElementById(`${a}`)
-      .setAttribute('gltf-model', `${path_before}/${current_straight_line}/${a}.glb`);
+      .setAttribute(
+        'gltf-model',
+        `${pathBefore}/${currentStraightLine}/${a}.glb`,
+      );
   } else {
-    document
-      .getElementById(`${a}`)
-      .removeAttribute('gltf-model');
+    document.getElementById(`${a}`).removeAttribute('gltf-model');
   }
 }
 
-function to_2d() {
+function to2D() {
   // В 2D режим можно перейти, только если в данный момент включен 3D режим
-  if (mode_3d) {
+  if (mode3D) {
     // удаляем модель
-    document
-      .getElementById('model')
-      .removeAttribute('gltf-model');
+    document.getElementById('model').removeAttribute('gltf-model');
     // удаляем вспомогательные линии
-    document
-      .getElementById('lines')
-      .removeAttribute('gltf-model');
+    document.getElementById('lines').removeAttribute('gltf-model');
     // очищаем анимейшен миксер
     document
       .getElementById('planes')
@@ -81,8 +86,10 @@ function to_2d() {
     // назначаем новый анимейшен миксер
     document
       .getElementById('planes')
-      .setAttribute('animation-mixer', 'clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1');
-
+      .setAttribute(
+        'animation-mixer',
+        'clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1',
+      );
     // Чекбоксы должны ВЫКЛЮЧИТЬСЯ (то есть если они нажаты, то осуществить имитацию нажатия)
     if (document.getElementById('model_checkbox').checked) {
       document.getElementById('model_checkbox').click();
@@ -90,13 +97,13 @@ function to_2d() {
     if (document.getElementById('lines_checkbox').checked) {
       document.getElementById('lines_checkbox').click();
     }
-    mode_3d = false;
+    mode3D = false;
   }
 }
 
-function to_3d() {
-  // В 3D режим можно перейти, только если в данный момент включен 2D режим, то есть mode_3d=false
-  if (!mode_3d) {
+function to3D() {
+  // В 3D режим можно перейти, только если в данный момент включен 2D режим, то есть mode3D=false
+  if (!mode3D) {
     // очищаем анимейшен миксер
     document
       .getElementById('planes')
@@ -104,17 +111,25 @@ function to_3d() {
     // назначаем новый анимейшен миксер
     document
       .getElementById('planes')
-      .setAttribute('animation-mixer', 'clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1');
-
+      .setAttribute(
+        'animation-mixer',
+        'clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1',
+      );
     setTimeout(() => {
       // делаем модель видимой
       document
         .getElementById('model')
-        .setAttribute('gltf-model', `${path_before}/${current_straight_line}/model.glb`);
+        .setAttribute(
+          'gltf-model',
+          `${pathBefore}/${currentStraightLine}/model.glb`,
+        );
       // делаем линии видимыми
       document
         .getElementById('lines')
-        .setAttribute('gltf-model', `${path_before}/${current_straight_line}/lines.glb`);
+        .setAttribute(
+          'gltf-model',
+          `${pathBefore}/${currentStraightLine}/lines.glb`,
+        );
 
       // Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
       if (!document.getElementById('model_checkbox').checked) {
@@ -124,38 +139,47 @@ function to_3d() {
         document.getElementById('lines_checkbox').click();
       }
     }, 5000);
-    		mode_3d = true;
+    mode3D = true;
   }
 }
 
 window.onload = function () {
-  document.getElementById('title').innerHTML = (current_title);
-  document.getElementById('theory_text').innerHTML = (current_text);
+  document.getElementById('title').innerHTML = currentTitle;
+  document.getElementById('theory_text').innerHTML = currentText;
   // Сначала появляются плоскости, потом модель, потом линии
   document
     .getElementById('planes')
-    .setAttribute('gltf-model', `${path_before}/${current_straight_line}/planes.glb`);
+    .setAttribute(
+      'gltf-model',
+      `${pathBefore}/${currentStraightLine}/planes.glb`,
+    );
   document
     .getElementById('model')
-    .setAttribute('gltf-model', `${path_before}/${current_straight_line}/model.glb`);
+    .setAttribute(
+      'gltf-model',
+      `${pathBefore}/${currentStraightLine}/model.glb`,
+    );
   document
     .getElementById('lines')
-    .setAttribute('gltf-model', `${path_before}/${current_straight_line}/lines.glb`);
+    .setAttribute(
+      'gltf-model',
+      `${pathBefore}/${currentStraightLine}/lines.glb`,
+    );
 
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
     .addEventListener('click', () => {
-      if (description_vis) {
+      if (descriptionVis) {
         document
           .getElementById('theory_text')
           .setAttribute('style', 'display: none;');
-        description_vis = false;
+        descriptionVis = false;
       } else {
         document
           .getElementById('theory_text')
           .setAttribute('style', 'display: block;');
-        description_vis = true;
+        descriptionVis = true;
       }
     });
 
@@ -165,22 +189,32 @@ window.onload = function () {
     .addEventListener('click', (e) => {
       if (e.target.tagName === 'LI') {
         // Обновляем текущую прямую
-        update_current(e.target.id);
+        updateCurrent(e.target.id);
         // Меняем заголовок и описание
-        document.getElementById('title').innerHTML = (current_title);
-        document.getElementById('theory_text').innerHTML = (current_text);
+        document.getElementById('title').innerHTML = currentTitle;
+        document.getElementById('theory_text').innerHTML =
+          currentText;
 
         // Сначала появляются плоскости, потом модель, потом линии
         // просто выводим все без анимации
         document
           .getElementById('planes')
-          .setAttribute('gltf-model', `${path_before}/${current_straight_line}/planes.glb`);
+          .setAttribute(
+            'gltf-model',
+            `${pathBefore}/${currentStraightLine}/planes.glb`,
+          );
         document
           .getElementById('model')
-          .setAttribute('gltf-model', `${path_before}/${current_straight_line}/model.glb`);
+          .setAttribute(
+            'gltf-model',
+            `${pathBefore}/${currentStraightLine}/model.glb`,
+          );
         document
           .getElementById('lines')
-          .setAttribute('gltf-model', `${path_before}/${current_straight_line}/lines.glb`);
+          .setAttribute(
+            'gltf-model',
+            `${pathBefore}/${currentStraightLine}/lines.glb`,
+          );
 
         // Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
         if (!document.getElementById('model_checkbox').checked) {
@@ -190,11 +224,11 @@ window.onload = function () {
           document.getElementById('lines_checkbox').click();
         }
 
-        mode_3d = true;
+        mode3D = true;
         // делаем анимацию не доступной из выбора меню прямой
-        // animation_to_3d_boolean=false;
-        // if(!document.getElementById("to_3d_radio").checked){
-        // 	document.getElementById("to_3d_radio").click();
+        // animation_to3D_boolean=false;
+        // if(!document.getElementById("to3D_radio").checked){
+        // 	document.getElementById("to3D_radio").click();
         // }
       }
     });
