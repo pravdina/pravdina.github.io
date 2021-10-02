@@ -49,7 +49,7 @@ let currentText = straightLines.find(
   (currentText) => currentText.name === currentStraightLine,
 ).text;
 
-function updateCurrent(name) {
+function updateCurrentLine(name) {
   currentStraightLine = name;
   currentTitle = straightLines.find(
     (currentTitle) => currentTitle.name === currentStraightLine,
@@ -87,6 +87,22 @@ const showAll = () => {
   showPlanes();
   showModel();
   showLines();
+};
+const setTitle = (title) => {
+  document.getElementById('title').innerHTML = title;
+};
+const setTheoryText = (theoryText) => {
+  document.getElementById('theory_text').innerHTML = theoryText;
+};
+const checkboxFakeCheck = (checkboxId) => {
+  if (!document.getElementById(checkboxId).checked) {
+    document.getElementById(checkboxId).click();
+  }
+};
+const checkboxFakeUncheck = (checkboxId) => {
+  if (document.getElementById(checkboxId).checked) {
+    document.getElementById(checkboxId).click();
+  }
 };
 // ---------------------------------------------------
 
@@ -153,63 +169,65 @@ function to3D() {
       showLines();
 
       // Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
-      if (!document.getElementById('model_checkbox').checked) {
-        document.getElementById('model_checkbox').click();
-      }
-      if (!document.getElementById('lines_checkbox').checked) {
-        document.getElementById('lines_checkbox').click();
-      }
+      checkboxFakeCheck('model_checkbox');
+      checkboxFakeCheck('lines_checkbox');
+      // if (!document.getElementById('model_checkbox').checked) {
+      //   document.getElementById('model_checkbox').click();
+      // }
+      // if (!document.getElementById('lines_checkbox').checked) {
+      //   document.getElementById('lines_checkbox').click();
+      // }
     }, 5000);
     mode3D = true;
   }
 }
 
 window.onload = () => {
-  document.getElementById('title').innerHTML = currentTitle;
-  document.getElementById('theory_text').innerHTML = currentText;
-  // Сначала появляются плоскости, потом модель, потом линии
+  setTitle(currentTitle);
+  setTheoryText(currentText);
   showAll();
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
     .addEventListener('click', () => {
-      if (isDescriptionVisible) {
-        document
-          .getElementById('theory_text')
-          .setAttribute('style', 'display: none;');
-        isDescriptionVisible = false;
-      } else {
-        document
-          .getElementById('theory_text')
-          .setAttribute('style', 'display: block;');
-        isDescriptionVisible = true;
-      }
+      // if (isDescriptionVisible) {
+      //   document
+      //     .getElementById('theory_text')
+      //     .setAttribute('style', 'display: none;');
+      //   isDescriptionVisible = false;
+      // } else {
+      //   document
+      //     .getElementById('theory_text')
+      //     .setAttribute('style', 'display: block;');
+      //   isDescriptionVisible = true;
+      // }
+      document
+        .getElementById('theory_text')
+        .setAttribute(
+          'style',
+          `display: ${isDescriptionVisible ? 'none' : 'block'};`,
+        );
+      isDescriptionVisible = !isDescriptionVisible;
     });
 
   // Изменение прямой
   document
-    .getElementById('menu_optipns')
+    .getElementById('menu_options')
     .addEventListener('click', (e) => {
       if (e.target.tagName === 'LI') {
-        // Обновляем текущую прямую
-        updateCurrent(e.target.id);
-        // Меняем заголовок и описание
-        document.getElementById('title').innerHTML = currentTitle;
-        document.getElementById('theory_text').innerHTML =
-          currentText;
-
-        // Сначала появляются плоскости, потом модель, потом линии
-        // просто выводим все без анимации
+        updateCurrentLine(e.target.id);
+        setTitle(currentTitle);
+        setTheoryText(currentText);
         showAll();
-
         // Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
-        if (!document.getElementById('model_checkbox').checked) {
-          document.getElementById('model_checkbox').click();
-        }
-        if (!document.getElementById('lines_checkbox').checked) {
-          document.getElementById('lines_checkbox').click();
-        }
-
+        // if (!document.getElementById('model_checkbox').checked) {
+        //   document.getElementById('model_checkbox').click();
+        // }
+        // if (!document.getElementById('lines_checkbox').checked) {
+        //   document.getElementById('lines_checkbox').click();
+        // }
+        checkboxFakeUncheck('model_checkbox');
+        checkboxFakeUncheck('lines_checkbox');
         mode3D = true;
       }
     });
