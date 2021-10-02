@@ -75,6 +75,7 @@ const showModel = () => {
       `${pathBefore}/${currentStraightLine}/model.glb`,
     );
 };
+const hideModel = () => {};
 const showLines = () => {
   document
     .getElementById('lines')
@@ -138,12 +139,14 @@ function to2D() {
         'clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1',
       );
     // Чекбоксы должны ВЫКЛЮЧИТЬСЯ (то есть если они нажаты, то осуществить имитацию нажатия)
-    if (document.getElementById('model_checkbox').checked) {
-      document.getElementById('model_checkbox').click();
-    }
-    if (document.getElementById('lines_checkbox').checked) {
-      document.getElementById('lines_checkbox').click();
-    }
+    checkboxFakeUncheck('model_checkbox');
+    checkboxFakeUncheck('lines_checkbox');
+    // if (document.getElementById('model_checkbox').checked) {
+    //   document.getElementById('model_checkbox').click();
+    // }
+    // if (document.getElementById('lines_checkbox').checked) {
+    //   document.getElementById('lines_checkbox').click();
+    // }
     mode3D = false;
   }
 }
@@ -226,8 +229,8 @@ window.onload = () => {
         // if (!document.getElementById('lines_checkbox').checked) {
         //   document.getElementById('lines_checkbox').click();
         // }
-        checkboxFakeUncheck('model_checkbox');
-        checkboxFakeUncheck('lines_checkbox');
+        checkboxFakeCheck('model_checkbox');
+        checkboxFakeCheck('lines_checkbox');
         mode3D = true;
       }
     });
