@@ -37,10 +37,9 @@ const straightLines = [
     text: 'Пряма перпендикулярна площині π<sub>3</sub>, паралельна площинам π<sub>1</sub> та π<sub>2</sub>. Проекція на площині π<sub>3</sub> представить собою точку, горизонтальна та фронтальна проекції дорівнюють самому відрізку.',
   },
 ];
-// Стартовые значения
+// Start value
 let isDescriptionVisible = false;
 let mode3D = true;
-
 let currentStraightLine = 'zag_pol';
 let currentTitle = straightLines.find(
   (currentTitle) => currentTitle.name === currentStraightLine,
@@ -49,7 +48,8 @@ let currentText = straightLines.find(
   (currentText) => currentText.name === currentStraightLine,
 ).text;
 
-function updateCurrentLine(name) {
+// Functions
+const updateCurrentLine = (name) => {
   currentStraightLine = name;
   currentTitle = straightLines.find(
     (currentTitle) => currentTitle.name === currentStraightLine,
@@ -57,8 +57,14 @@ function updateCurrentLine(name) {
   currentText = straightLines.find(
     (currentText) => currentText.name === currentStraightLine,
   ).text;
-}
-// ---------------------------------------------------
+};
+const setTitle = (title) => {
+  document.getElementById('title').innerHTML = title;
+};
+const setTheoryText = (theoryText) => {
+  document.getElementById('theory_text').innerHTML = theoryText;
+};
+
 const showPlanes = () => {
   document
     .getElementById('planes')
@@ -75,7 +81,9 @@ const showModel = () => {
       `${pathBefore}/${currentStraightLine}/model.glb`,
     );
 };
-const hideModel = () => {};
+const hideModel = () => {
+  document.getElementById('model').removeAttribute('gltf-model');
+};
 const showLines = () => {
   document
     .getElementById('lines')
@@ -84,16 +92,13 @@ const showLines = () => {
       `${pathBefore}/${currentStraightLine}/lines.glb`,
     );
 };
+const hideLines = () => {
+  document.getElementById('lines').removeAttribute('gltf-model');
+};
 const showAll = () => {
   showPlanes();
   showModel();
   showLines();
-};
-const setTitle = (title) => {
-  document.getElementById('title').innerHTML = title;
-};
-const setTheoryText = (theoryText) => {
-  document.getElementById('theory_text').innerHTML = theoryText;
 };
 const checkboxFakeCheck = (checkboxId) => {
   if (!document.getElementById(checkboxId).checked) {
@@ -105,8 +110,44 @@ const checkboxFakeUncheck = (checkboxId) => {
     document.getElementById(checkboxId).click();
   }
 };
-// ---------------------------------------------------
-
+const playAnimation = (direction) => {
+  let timeScale = 1;
+  if (direction === 'backward') {
+    timeScale = -1;
+  }
+  // очищаем анимейшен миксер
+  document
+    .getElementById('planes')
+    .removeAttribute('animation-mixer');
+  // назначаем новый анимейшен миксер
+  document
+    .getElementById('planes')
+    .setAttribute(
+      'animation-mixer',
+      `clip: p*; timeScale: ${timeScale}; clampWhenFinished: true; repetitions:1`,
+    );
+};
+const toggleTheoryText = () => {
+  document
+    .getElementById('theory_text')
+    .setAttribute(
+      'style',
+      `display: ${isDescriptionVisible ? 'none' : 'block'};`,
+    );
+  isDescriptionVisible = !isDescriptionVisible;
+};
+const handleLineChange = (e) => {
+  if (e.target.tagName === 'LI') {
+    updateCurrentLine(e.target.id);
+    setTitle(currentTitle);
+    setTheoryText(currentText);
+    showAll();
+    checkboxFakeCheck('model_checkbox');
+    checkboxFakeCheck('lines_checkbox');
+    mode3D = true;
+    // изменить радиобаттон!!!
+  }
+};
 function check(a) {
   if (document.getElementById(`${a}_checkbox`).checked) {
     document
@@ -123,30 +164,13 @@ function check(a) {
 function to2D() {
   // В 2D режим можно перейти, только если в данный момент включен 3D режим
   if (mode3D) {
-    // удаляем модель
-    document.getElementById('model').removeAttribute('gltf-model');
-    // удаляем вспомогательные линии
-    document.getElementById('lines').removeAttribute('gltf-model');
+    hideModel();
+    hideLines();
     // очищаем анимейшен миксер
-    document
-      .getElementById('planes')
-      .removeAttribute('animation-mixer');
-    // назначаем новый анимейшен миксер
-    document
-      .getElementById('planes')
-      .setAttribute(
-        'animation-mixer',
-        'clip: p*; timeScale: 1; clampWhenFinished: true; repetitions:1',
-      );
+    playAnimation('forward');
     // Чекбоксы должны ВЫКЛЮЧИТЬСЯ (то есть если они нажаты, то осуществить имитацию нажатия)
     checkboxFakeUncheck('model_checkbox');
     checkboxFakeUncheck('lines_checkbox');
-    // if (document.getElementById('model_checkbox').checked) {
-    //   document.getElementById('model_checkbox').click();
-    // }
-    // if (document.getElementById('lines_checkbox').checked) {
-    //   document.getElementById('lines_checkbox').click();
-    // }
     mode3D = false;
   }
 }
@@ -154,31 +178,13 @@ function to2D() {
 function to3D() {
   // В 3D режим можно перейти, только если в данный момент включен 2D режим, то есть mode3D=false
   if (!mode3D) {
-    // очищаем анимейшен миксер
-    document
-      .getElementById('planes')
-      .removeAttribute('animation-mixer');
-    // назначаем новый анимейшен миксер
-    document
-      .getElementById('planes')
-      .setAttribute(
-        'animation-mixer',
-        'clip: p*; timeScale: -1; clampWhenFinished: true; repetitions:1',
-      );
+    playAnimation('backward');
     setTimeout(() => {
-      // делаем модель видимой
       showModel();
-      // делаем линии видимыми
       showLines();
-
       // Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
       checkboxFakeCheck('model_checkbox');
       checkboxFakeCheck('lines_checkbox');
-      // if (!document.getElementById('model_checkbox').checked) {
-      //   document.getElementById('model_checkbox').click();
-      // }
-      // if (!document.getElementById('lines_checkbox').checked) {
-      //   document.getElementById('lines_checkbox').click();
       // }
     }, 5000);
     mode3D = true;
@@ -192,46 +198,9 @@ window.onload = () => {
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
-    .addEventListener('click', () => {
-      // if (isDescriptionVisible) {
-      //   document
-      //     .getElementById('theory_text')
-      //     .setAttribute('style', 'display: none;');
-      //   isDescriptionVisible = false;
-      // } else {
-      //   document
-      //     .getElementById('theory_text')
-      //     .setAttribute('style', 'display: block;');
-      //   isDescriptionVisible = true;
-      // }
-      document
-        .getElementById('theory_text')
-        .setAttribute(
-          'style',
-          `display: ${isDescriptionVisible ? 'none' : 'block'};`,
-        );
-      isDescriptionVisible = !isDescriptionVisible;
-    });
-
+    .addEventListener('click', toggleTheoryText());
   // Изменение прямой
   document
     .getElementById('menu_options')
-    .addEventListener('click', (e) => {
-      if (e.target.tagName === 'LI') {
-        updateCurrentLine(e.target.id);
-        setTitle(currentTitle);
-        setTheoryText(currentText);
-        showAll();
-        // Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
-        // if (!document.getElementById('model_checkbox').checked) {
-        //   document.getElementById('model_checkbox').click();
-        // }
-        // if (!document.getElementById('lines_checkbox').checked) {
-        //   document.getElementById('lines_checkbox').click();
-        // }
-        checkboxFakeCheck('model_checkbox');
-        checkboxFakeCheck('lines_checkbox');
-        mode3D = true;
-      }
-    });
+    .addEventListener('click', (e) => handleLineChange(e));
 };
