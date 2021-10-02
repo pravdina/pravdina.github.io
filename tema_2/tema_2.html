@@ -39,15 +39,8 @@
         gesture-detector
         id="scene"
       >
-        <a-marker type=" pattern " url="markers/pattern-GMKG.patt">
-          <a-entity
-            id="planes"
-            position="0.5 0.5 0"
-            scale="0.4 0.4 0.4"
-            class="clickable"
-            gesture-handler="minScale: 0.1; maxScale: 20"
-          >
-          </a-entity>
+        <a-marker type=" pattern " url="../markers/pattern-GMKG.patt">
+          <a-box position="0 0.5 0" material="opacity: 0.5;"></a-box>
         </a-marker>
         <a-entity camera></a-entity>
       </a-scene>
