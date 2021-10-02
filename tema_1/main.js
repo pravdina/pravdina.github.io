@@ -1,4 +1,4 @@
-const path_before = 'models';
+const path_before = '../models/tema_1';
 
 const straight_lines = [
   {
