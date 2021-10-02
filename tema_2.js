@@ -38,7 +38,7 @@ const straightLines = [
   },
 ];
 
-let descriptionVis = false;
+let isDescriptionVisible = false;
 let mode3D = true;
 
 let currentStraightLine = 'zag_pol';
@@ -142,44 +142,54 @@ function to3D() {
     mode3D = true;
   }
 }
-
-window.onload = function () {
-  document.getElementById('title').innerHTML = currentTitle;
-  document.getElementById('theory_text').innerHTML = currentText;
-  // Сначала появляются плоскости, потом модель, потом линии
+// ---------------------------------------------------
+const showPlanes = () => {
   document
     .getElementById('planes')
     .setAttribute(
       'gltf-model',
       `${pathBefore}/${currentStraightLine}/planes.glb`,
     );
+};
+const showModel = () => {
   document
     .getElementById('model')
     .setAttribute(
       'gltf-model',
       `${pathBefore}/${currentStraightLine}/model.glb`,
     );
+};
+const showLine = () => {
   document
     .getElementById('lines')
     .setAttribute(
       'gltf-model',
       `${pathBefore}/${currentStraightLine}/lines.glb`,
     );
+};
+
+window.onload = function () {
+  document.getElementById('title').innerHTML = currentTitle;
+  document.getElementById('theory_text').innerHTML = currentText;
+  // Сначала появляются плоскости, потом модель, потом линии
+  showPlanes();
+  showModel();
+  showLine();
 
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
     .addEventListener('click', () => {
-      if (descriptionVis) {
+      if (isDescriptionVisible) {
         document
           .getElementById('theory_text')
           .setAttribute('style', 'display: none;');
-        descriptionVis = false;
+        isDescriptionVisible = false;
       } else {
         document
           .getElementById('theory_text')
           .setAttribute('style', 'display: block;');
-        descriptionVis = true;
+        isDescriptionVisible = true;
       }
     });
 
