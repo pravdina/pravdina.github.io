@@ -37,7 +37,7 @@ const straightLines = [
     text: 'Пряма перпендикулярна площині π<sub>3</sub>, паралельна площинам π<sub>1</sub> та π<sub>2</sub>. Проекція на площині π<sub>3</sub> представить собою точку, горизонтальна та фронтальна проекції дорівнюють самому відрізку.',
   },
 ];
-
+// Стартовые значения
 let isDescriptionVisible = false;
 let mode3D = true;
 
@@ -58,6 +58,37 @@ function updateCurrent(name) {
     (currentText) => currentText.name === currentStraightLine,
   ).text;
 }
+// ---------------------------------------------------
+const showPlanes = () => {
+  document
+    .getElementById('planes')
+    .setAttribute(
+      'gltf-model',
+      `${pathBefore}/${currentStraightLine}/planes.glb`,
+    );
+};
+const showModel = () => {
+  document
+    .getElementById('model')
+    .setAttribute(
+      'gltf-model',
+      `${pathBefore}/${currentStraightLine}/model.glb`,
+    );
+};
+const showLines = () => {
+  document
+    .getElementById('lines')
+    .setAttribute(
+      'gltf-model',
+      `${pathBefore}/${currentStraightLine}/lines.glb`,
+    );
+};
+const showAll = () => {
+  showPlanes();
+  showModel();
+  showLines();
+};
+// ---------------------------------------------------
 
 function check(a) {
   if (document.getElementById(`${a}_checkbox`).checked) {
@@ -117,19 +148,9 @@ function to3D() {
       );
     setTimeout(() => {
       // делаем модель видимой
-      document
-        .getElementById('model')
-        .setAttribute(
-          'gltf-model',
-          `${pathBefore}/${currentStraightLine}/model.glb`,
-        );
+      showModel();
       // делаем линии видимыми
-      document
-        .getElementById('lines')
-        .setAttribute(
-          'gltf-model',
-          `${pathBefore}/${currentStraightLine}/lines.glb`,
-        );
+      showLines();
 
       // Чекбоксы должны ВКЛЮЧИТЬСЯ (то есть если они НЕ нажаты, то осуществить имитацию нажатия)
       if (!document.getElementById('model_checkbox').checked) {
@@ -142,40 +163,12 @@ function to3D() {
     mode3D = true;
   }
 }
-// ---------------------------------------------------
-const showPlanes = () => {
-  document
-    .getElementById('planes')
-    .setAttribute(
-      'gltf-model',
-      `${pathBefore}/${currentStraightLine}/planes.glb`,
-    );
-};
-const showModel = () => {
-  document
-    .getElementById('model')
-    .setAttribute(
-      'gltf-model',
-      `${pathBefore}/${currentStraightLine}/model.glb`,
-    );
-};
-const showLine = () => {
-  document
-    .getElementById('lines')
-    .setAttribute(
-      'gltf-model',
-      `${pathBefore}/${currentStraightLine}/lines.glb`,
-    );
-};
 
-window.onload = function () {
+window.onload = () => {
   document.getElementById('title').innerHTML = currentTitle;
   document.getElementById('theory_text').innerHTML = currentText;
   // Сначала появляются плоскости, потом модель, потом линии
-  showPlanes();
-  showModel();
-  showLine();
-
+  showAll();
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
@@ -207,24 +200,7 @@ window.onload = function () {
 
         // Сначала появляются плоскости, потом модель, потом линии
         // просто выводим все без анимации
-        document
-          .getElementById('planes')
-          .setAttribute(
-            'gltf-model',
-            `${pathBefore}/${currentStraightLine}/planes.glb`,
-          );
-        document
-          .getElementById('model')
-          .setAttribute(
-            'gltf-model',
-            `${pathBefore}/${currentStraightLine}/model.glb`,
-          );
-        document
-          .getElementById('lines')
-          .setAttribute(
-            'gltf-model',
-            `${pathBefore}/${currentStraightLine}/lines.glb`,
-          );
+        showAll();
 
         // Чекбоксы должны ВКЛЮЧИТЬСЯ, так как появиться все (то есть если они не нажаты, то осуществить имитацию нажатия)
         if (!document.getElementById('model_checkbox').checked) {
@@ -235,11 +211,6 @@ window.onload = function () {
         }
 
         mode3D = true;
-        // делаем анимацию не доступной из выбора меню прямой
-        // animation_to3D_boolean=false;
-        // if(!document.getElementById("to3D_radio").checked){
-        // 	document.getElementById("to3D_radio").click();
-        // }
       }
     });
 };
