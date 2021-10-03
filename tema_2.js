@@ -206,8 +206,8 @@ window.onload = () => {
   // Радиобатоны
   document
     .getElementById('to_3d_radio')
-    .addEventListener('click', () => to3D());
+    .addEventListener('click', to3D());
   document
     .getElementById('to_2d_radio')
-    .addEventListener('click', () => to2D());
+    .addEventListener('click', to2D());
 };
