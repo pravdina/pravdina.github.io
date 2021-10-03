@@ -203,11 +203,4 @@ window.onload = () => {
   document
     .getElementById('menu_options')
     .addEventListener('click', (e) => handleLineChange(e));
-  // Радиобатоны
-  // document
-  //   .getElementById('to_3d_radio')
-  //   .addEventListener('click', () => to3D());
-  // document
-  //   .getElementById('to_2d_radio')
-  //   .addEventListener('click', () => to2D());
 };
