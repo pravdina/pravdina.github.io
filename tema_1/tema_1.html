@@ -6,7 +6,6 @@
     <!-- AR -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-
     <!-- Material Design Lite -->
     <link rel="stylesheet" href="../mdl/material.min.css" />
     <script src="../mdl/material.min.js"></script>
@@ -27,9 +26,9 @@
       type="text/css"
     />
     <!-- Кастомизация -->
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
 
-    <script src="main.js"></script>
+    <script src="tema_1.js"></script>
 
     <body style="margin: 0px; overflow: hidden">
       <!-- Верхняя панель -->
@@ -45,7 +44,9 @@
               <i class="material-icons">home</i>
             </button>
             <!-- Название темы -->
-            <div class="mdl-layout-title">Тема 1 path</div>
+            <div class="mdl-layout-title">
+              Тема 1 правильная структура
+            </div>
           </div>
         </header>
       </div>
@@ -69,7 +70,7 @@
           </button>
           <!-- Варианты выбора -->
           <ul
-            id="menu_optipns"
+            id="menu_options"
             class="
               mdl-menu mdl-menu--top-right
               mdl-js-menu mdl-js-ripple-effect
@@ -160,7 +161,7 @@
               class="mdl-radio__button"
               name="options"
               value="1"
-              onclick="to_3d()"
+              onclick="to3D()"
               checked
             />
             <span class="mdl-radio__label">3D</span>
@@ -175,7 +176,7 @@
               class="mdl-radio__button"
               name="options"
               value="2"
-              onclick="to_2d()"
+              onclick="to2D()"
             />
             <span class="mdl-radio__label">2D</span>
           </label>
