@@ -194,7 +194,7 @@ function to3D() {
 window.onload = () => {
   setTitle(currentTitle);
   setTheoryText(currentText);
-  showAll();
+  showModel();
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
