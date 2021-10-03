@@ -192,7 +192,6 @@ function to3D() {
 }
 
 window.onload = () => {
-  alert('hello');
   setTitle(currentTitle);
   setTheoryText(currentText);
   showAll();
