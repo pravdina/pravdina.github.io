@@ -1,5 +1,5 @@
 /* eslint-disable no-shadow */
-const pathBefore = '../models/tema_1';
+const pathBefore = 'models';
 const straightLines = [
   {
     name: 'zag_pol',
