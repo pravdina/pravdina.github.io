@@ -45,7 +45,9 @@
               <i class="material-icons">home</i>
             </button>
             <!-- Название темы -->
-            <div class="mdl-layout-title">Тема 2. Еліпсоїд3</div>
+            <div class="mdl-layout-title">
+              Тема 2. Еліпсоїд collada
+            </div>
           </div>
         </header>
       </div>
@@ -200,27 +202,13 @@
         id="scene"
       >
         <a-marker type=" pattern " url="markers/pattern-GMKG.patt">
-          <!-- <a-entity
-            id="planes"
-            position="0.5 0.5 0"
-            scale="0.4 0.4 0.4"
-            class="clickable"
-            gesture-handler="minScale: 0.1; maxScale: 20"
-          >
-          </a-entity> -->
-          <!-- <a-entity
-            id="lines"
-            position="0.5 0.5 0"
-            scale="0.4 0.4 0.4"
-            class="clickable"
-            gesture-handler="minScale: 0.1; maxScale: 20"
-          ></a-entity> -->
           <a-entity
             id="model"
             position="0.5 0.5 0"
             scale="0.4 0.4 0.4"
             class="clickable"
             gesture-handler="minScale: 0.1; maxScale: 20"
+            collada-model="models/tema_2/elipse.dae"
           ></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
