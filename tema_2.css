@@ -53,7 +53,8 @@ body {
   line-height: normal;
 }
 /*Меню с опциями*/
-#menu_btn {
+#menu_btn,
+#info_btn {
   margin: 16px;
 }
 /*Панель контроля*/
