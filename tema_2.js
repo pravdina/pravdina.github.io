@@ -1,10 +1,10 @@
 /* eslint-disable no-shadow */
-const pathBefore = 'models/tema_1';
+const pathBefore = 'models/tema_2';
 const straightLines = [
   {
-    name: 'zag_pol',
-    title: 'Пряма загального положення',
-    text: 'Пряма довільно похила до всіх трьох площин проекцій, жодна з проекцій не паралельна осям.',
+    name: 'cycloida',
+    title: 'cycloida',
+    text: 'cycloida',
   },
   {
     name: 'gor_level',
@@ -40,7 +40,7 @@ const straightLines = [
 // Start value
 let isDescriptionVisible = false;
 // let mode3D = true;
-let currentStraightLine = 'zag_pol';
+let currentStraightLine = 'cycloida';
 let currentTitle = straightLines.find(
   (currentTitle) => currentTitle.name === currentStraightLine,
 ).title;
@@ -70,7 +70,7 @@ const showModel = () => {
     .getElementById('model')
     .setAttribute(
       'gltf-model',
-      `${pathBefore}/${currentStraightLine}/model.glb`,
+      `${pathBefore}/${currentStraightLine}.glb`,
     );
 };
 
