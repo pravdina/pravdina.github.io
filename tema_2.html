@@ -29,7 +29,7 @@
     <!-- Кастомизация -->
     <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <script src="tema_2.js"></script>
+    <script src="tema_1.js"></script>
 
     <body style="margin: 0px; overflow: hidden">
       <!-- Верхняя панель -->
@@ -45,10 +45,13 @@
               <i class="material-icons">home</i>
             </button>
             <!-- Название темы -->
-            <div class="mdl-layout-title">Тема 2. Dini</div>
+            <div class="mdl-layout-title">
+              Тема 1. Полный дубликат
+            </div>
           </div>
         </header>
       </div>
+
       <!-- Описание -->
       <div id="description" class="mdl-card mdl-shadow--2dp">
         <div style="display: flex; justify-content: space-between">
@@ -76,14 +79,36 @@
             data-mdl-for="menu_btn"
           >
             <li
-              id="dini"
+              id="zag_pol"
               class="
                 mdl-menu__item mdl-menu__item--full-bleed-divider
               "
             >
-              Поверхня Діні
+              Пряма загального положення
             </li>
-            <li id="paraboloid" class="mdl-menu__item">Параболоид</li>
+            <li id="gor_level" class="mdl-menu__item">
+              Пряма горизонтального рівня
+            </li>
+            <li id="front_level" class="mdl-menu__item">
+              Пряма фронтального рівня
+            </li>
+            <li
+              id="prof_level"
+              class="
+                mdl-menu__item mdl-menu__item--full-bleed-divider
+              "
+            >
+              Пряма профільного рівня
+            </li>
+            <li id="gor_proj" class="mdl-menu__item">
+              Горизонтально-проектуюча пряма
+            </li>
+            <li id="front_proj" class="mdl-menu__item">
+              Фронтально-проектуюча пряма
+            </li>
+            <li id="prof_proj" class="mdl-menu__item">
+              Профільно-проектуюча пряма
+            </li>
           </ul>
         </div>
         <!-- Теоретический текст про прямую -->
@@ -96,7 +121,7 @@
       <!-- Панель управления -->
       <div class="control">
         <!-- Swith -->
-        <!-- <div class="switches">
+        <div class="switches">
           <label
             class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
             for="model_checkbox"
@@ -124,9 +149,9 @@
             />
             <span class="mdl-switch__label">Лінії</span>
           </label>
-        </div> -->
+        </div>
         <!-- Radio -->
-        <!-- <div class="radios">
+        <div class="radios">
           <label
             class="mdl-radio mdl-js-radio mdl-js-ripple-effect"
             for="to_3d_radio"
@@ -156,7 +181,7 @@
             />
             <span class="mdl-radio__label">2D</span>
           </label>
-        </div> -->
+        </div>
         <!-- Кнопка для вывода теоретического текста о прямой-->
         <button
           id="info_btn"
@@ -179,11 +204,26 @@
       >
         <a-marker type=" pattern " url="markers/pattern-GMKG.patt">
           <a-entity
+            id="planes"
             position="0.5 0.5 0"
             scale="0.4 0.4 0.4"
             class="clickable"
             gesture-handler="minScale: 0.1; maxScale: 20"
-            gltf-model="models/tema_2/dini.glb"
+          >
+          </a-entity>
+          <a-entity
+            id="lines"
+            position="0.5 0.5 0"
+            scale="0.4 0.4 0.4"
+            class="clickable"
+            gesture-handler="minScale: 0.1; maxScale: 20"
+          ></a-entity>
+          <a-entity
+            id="model"
+            position="0.5 0.5 0"
+            scale="0.4 0.4 0.4"
+            class="clickable"
+            gesture-handler="minScale: 0.1; maxScale: 20"
           ></a-entity>
         </a-marker>
         <a-entity camera></a-entity>
