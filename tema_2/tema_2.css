@@ -1,0 +1,93 @@
+html {
+  font-size: 18px;
+}
+body {
+  /*background-color: gray;*/
+  margin: 0;
+  font-family: Roboto;
+}
+/*Верхняя панель*/
+.mdl-layout__header {
+  flex-direction: row;
+  padding: 8px 4px;
+}
+.mdl-layout-title {
+  font-size: 1.05rem;
+  width: calc(100vw - 88px);
+  height: auto;
+  padding: 4px 0;
+}
+.mdl-layout__container {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+#home_btn {
+  margin: 16px;
+}
+.mdl-layout__header-row {
+  padding: 0;
+}
+/*Описание*/
+#description {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  padding: 4px;
+  width: 100%;
+}
+.mdl-card {
+  min-height: 52px;
+  overflow: visible;
+  z-index: 11;
+}
+.mdl-card__title {
+  padding-right: 0;
+}
+.mdl-card__title-text {
+  font-size: 1.25rem;
+}
+.mdl-card__supporting-text {
+  font-size: 1rem;
+  padding-top: 0;
+  line-height: normal;
+}
+/*Меню с опциями*/
+#menu_btn,
+#info_btn {
+  margin: 16px;
+}
+/*Панель контроля*/
+.control {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: calc(100vw - 40px);
+  background-color: white;
+  display: flex;
+  padding: 4px 20px;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  z-index: 10;
+}
+.switches {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: space-evenly;
+}
+.radios {
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  justify-content: space-evenly;
+}
+.mdl-switch__label {
+  font-size: 1rem;
+  line-height: normal;
+}
+.mdl-radio {
+  font-size: 1rem;
+  line-height: normal;
+}
