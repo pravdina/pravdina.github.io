@@ -1,6 +1,6 @@
 /* eslint-disable no-shadow */
 const pathBefore = 'models/tema_2';
-const straightLines = [
+const helicoidalSurfaces = [
   {
     name: 'cycloida',
     title: 'cycloida',
@@ -8,7 +8,7 @@ const straightLines = [
   },
   {
     name: 'dini',
-    title: 'dini',
+    title: 'Гелікоїд Діні',
     text: 'dini',
   },
   {
@@ -40,22 +40,22 @@ const straightLines = [
 // Start value
 let isDescriptionVisible = false;
 // let mode3D = true;
-let currentStraightLine = 'cycloida';
-let currentTitle = straightLines.find(
-  (currentTitle) => currentTitle.name === currentStraightLine,
+let currentObject = 'cycloida';
+let currentTitle = helicoidalSurfaces.find(
+  (currentTitle) => currentTitle.name === currentObject,
 ).title;
-let currentText = straightLines.find(
-  (currentText) => currentText.name === currentStraightLine,
+let currentText = helicoidalSurfaces.find(
+  (currentText) => currentText.name === currentObject,
 ).text;
 
 // Functions
 const updateCurrentLine = (name) => {
-  currentStraightLine = name;
-  currentTitle = straightLines.find(
-    (currentTitle) => currentTitle.name === currentStraightLine,
+  currentObject = name;
+  currentTitle = helicoidalSurfaces.find(
+    (currentTitle) => currentTitle.name === currentObject,
   ).title;
-  currentText = straightLines.find(
-    (currentText) => currentText.name === currentStraightLine,
+  currentText = helicoidalSurfaces.find(
+    (currentText) => currentText.name === currentObject,
   ).text;
 };
 const setTitle = (title) => {
@@ -68,10 +68,7 @@ const setTheoryText = (theoryText) => {
 const showModel = () => {
   document
     .getElementById('model')
-    .setAttribute(
-      'gltf-model',
-      `${pathBefore}/${currentStraightLine}.glb`,
-    );
+    .setAttribute('gltf-model', `${pathBefore}/${currentObject}.glb`);
 };
 
 const toggleTheoryText = () => {
