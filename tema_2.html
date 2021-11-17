@@ -8,7 +8,6 @@
     <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
     <!-- Жесты -->
     <script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-
     <!-- Material Design Lite -->
     <link rel="stylesheet" href="mdl/material.min.css" />
     <script src="mdl/material.min.js"></script>
@@ -56,8 +55,12 @@
       <!-- Описание -->
       <div id="description" class="mdl-card mdl-shadow--2dp">
         <div
-          style="display: grid; grid-template-columns: auto 1fr auto"
+          style="display: grid; grid-template-columns: auto auto 1fr"
         >
+          <!-- Название прямой -->
+          <div class="mdl-card__title">
+            <h6 id="title" class="mdl-card__title-text"></h6>
+          </div>
           <!-- Кнопка для вывода теоретического текста о прямой-->
           <button
             id="info_btn"
@@ -68,10 +71,6 @@
           >
             <i class="material-icons">info</i>
           </button>
-          <!-- Название прямой -->
-          <div class="mdl-card__title">
-            <h6 id="title" class="mdl-card__title-text"></h6>
-          </div>
           <!-- Меню выбора прямых -->
           <button
             id="menu_btn"
