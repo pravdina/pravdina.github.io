@@ -60,6 +60,10 @@ body {
 #info_btn {
   margin: 16px;
 }
+li {
+  display: inline - block;
+  color: green;
+}
 /*Панель контроля*/
 .control {
   position: fixed;
