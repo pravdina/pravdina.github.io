@@ -67,10 +67,6 @@ li {
 #info_btn {
   margin: 16px 0 16px 16px;
 }
-.mdl-menu__item {
-  color: pink;
-  max-width: 90vw;
-}
 /*Панель контроля*/
 .control {
   position: fixed;
