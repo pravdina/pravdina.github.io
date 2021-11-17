@@ -55,7 +55,7 @@ body {
 #menu_options {
   max-width: 90vw;
 }
-li {
+.mdl-menu__item {
   display: inline-block;
   width: 100%; /* limit width */
   word-break: break-all; /* wrap extended text*/
