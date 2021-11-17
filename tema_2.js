@@ -3,7 +3,7 @@ const pathBefore = 'models/tema_2';
 const helicoidalSurfaces = [
   {
     name: 'cycloida',
-    title: 'cycloida',
+    title: 'Гвинтова поверхня з твірною кривою у вигляді циклоїди',
     text: 'cycloida',
   },
   {
@@ -13,27 +13,29 @@ const helicoidalSurfaces = [
   },
   {
     name: 'elips',
-    title: 'elips',
+    title: 'Гвинтова поверхня з твірним еліпсом',
     text: 'elips',
   },
   {
     name: 'evolventa',
-    title: 'evolventa',
+    title:
+      'Гвинтова поверхня з твірною кривою у вигляді евольвенти кола',
     text: 'evolventa',
   },
   {
     name: 'hyperbola',
-    title: 'hyperbola',
+    title: 'Гвинтова поверхня з твірною кривою у вигляді гіперболи',
     text: 'hyperbola',
   },
   {
     name: 'parabola',
-    title: 'parabola',
+    title:
+      'Гвинтова поверхня з параболічною твірною загального положення',
     text: 'parabola',
   },
   {
     name: 'sinysoida',
-    title: 'sinysoida',
+    title: 'Гвинтова поверхня із синусоїдальною твірною',
     text: 'sinysoida',
   },
 ];
