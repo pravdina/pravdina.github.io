@@ -58,8 +58,12 @@ body {
 #menu_btn {
   margin: 16px;
 }
+#info_btn {
+  margin: 16px 0;
+}
 .mdl-menu__item {
   color: pink;
+  max-width: 90vw;
 }
 /*Панель контроля*/
 .control {
