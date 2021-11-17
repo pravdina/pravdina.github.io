@@ -57,9 +57,9 @@ body {
 }
 li {
   display: inline-block;
-  max-width: 50%; /* limit width */
+  width: 100%; /* limit width */
   word-break: break-all; /* wrap extended text*/
-  border: 1px solid red; /* demo */
+  color: purple; /* demo */
 }
 #menu_btn {
   margin: 16px;
