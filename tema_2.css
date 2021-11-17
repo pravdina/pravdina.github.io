@@ -2,7 +2,6 @@ html {
   font-size: 18px;
 }
 body {
-  /*background-color: gray;*/
   margin: 0;
   font-family: Roboto;
 }
@@ -53,6 +52,10 @@ body {
   line-height: normal;
 }
 /*Меню с опциями*/
+#menu_options {
+  max-width: 90vw;
+  border: 1px solid red;
+}
 #menu_btn,
 #info_btn {
   margin: 16px;
