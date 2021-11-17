@@ -58,8 +58,9 @@ body {
 .mdl-menu__item {
   display: inline-block;
   width: 100%; /* limit width */
+  border: yellow;
   word-break: break-all; /* wrap extended text*/
-  color: purple; /* demo */
+  color: blue; /* demo */
 }
 #menu_btn {
   margin: 16px;
