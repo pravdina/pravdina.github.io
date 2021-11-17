@@ -54,14 +54,12 @@ body {
 /*Меню с опциями*/
 #menu_options {
   max-width: 90vw;
-  border: 1px solid red;
 }
-#menu_btn,
-#info_btn {
+#menu_btn {
   margin: 16px;
 }
-li {
-  max-width: 90vw;
+.mdl-menu__item {
+  color: pink;
 }
 /*Панель контроля*/
 .control {
