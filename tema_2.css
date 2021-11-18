@@ -53,6 +53,7 @@ body {
 }
 /*Меню с опциями*/
 .mdl-menu__item {
+  padding: 4px 0;
   width: 70vw;
   white-space: normal;
   height: auto;
