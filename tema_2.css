@@ -56,11 +56,11 @@ body {
   max-width: 90vw;
 }
 .mdl-menu__item {
-  display: inline-block;
-  width: 100%; /* limit width */
+  /* display: inline-block;
+  width: 100%; 
   border: yellow;
-  word-break: break-all; /* wrap extended text*/
-  color: purple; /* demo */
+  word-break: break-all;  */
+  color: yellowgreen; /* demo */
 }
 #menu_btn {
   margin: 16px;
