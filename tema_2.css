@@ -60,7 +60,7 @@ body {
   width: 100%; /* limit width */
   border: yellow;
   word-break: break-all; /* wrap extended text*/
-  color: blue; /* demo */
+  color: purple; /* demo */
 }
 #menu_btn {
   margin: 16px;
