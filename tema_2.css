@@ -35,6 +35,13 @@ body {
   padding: 4px;
   width: 100%;
 }
+#description--up {
+  position: fixed;
+  bottom: 98px;
+  left: 0;
+  padding: 4px;
+  width: 100%;
+}
 .mdl-card {
   min-height: 52px;
   overflow: visible;
@@ -62,7 +69,7 @@ body {
   white-space: normal;
   height: auto;
   line-height: 36px;
-  color: deeppink;
+  color: royalblue;
 }
 #menu_btn {
   margin: 16px;
