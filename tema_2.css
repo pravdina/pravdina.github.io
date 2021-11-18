@@ -52,21 +52,11 @@ body {
   line-height: normal;
 }
 /*Меню с опциями*/
-/* #menu_options {
-  max-width: 90vw;
-} */
 .mdl-menu__item {
-  /* display: inline-block;
-  width: 100%; 
-  border: yellow;
-  word-break: break-all;  */
   width: 70vw;
   white-space: normal;
   height: auto;
-  /* min-height: 48px; */
   line-height: 36px;
-  /* border: 1px solid red; */
-  /* color: yellowgreen; */
 }
 #menu_btn {
   margin: 16px;
