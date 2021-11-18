@@ -52,13 +52,17 @@ body {
   line-height: normal;
 }
 /*Меню с опциями*/
+#menu_options {
+  padding: 0;
+}
 .mdl-menu__item {
-  padding-top: 4px;
-  padding-bottom: 4px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   width: 70vw;
   white-space: normal;
   height: auto;
   line-height: 36px;
+  color: deeppink;
 }
 #menu_btn {
   margin: 16px;
