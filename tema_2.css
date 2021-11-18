@@ -52,17 +52,18 @@ body {
   line-height: normal;
 }
 /*Меню с опциями*/
-#menu_options {
+/* #menu_options {
   max-width: 90vw;
-}
+} */
 .mdl-menu__item {
   /* display: inline-block;
   width: 100%; 
   border: yellow;
   word-break: break-all;  */
+  width: 90vw;
   white-space: normal;
   height: auto;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   color: yellowgreen; /* demo */
 }
 .custom-li {
