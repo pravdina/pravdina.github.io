@@ -69,7 +69,6 @@ body {
   white-space: normal;
   height: auto;
   line-height: 36px;
-  color: royalblue;
 }
 #menu_btn {
   margin: 16px;
@@ -79,15 +78,15 @@ body {
 }
 /*Панель контроля*/
 .control {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
   position: fixed;
   bottom: 0;
   left: 0;
   width: calc(100vw - 40px);
   background-color: white;
-  display: flex;
   padding: 4px 20px;
-  justify-content: space-between;
-  align-items: center;
   font-size: 1rem;
   z-index: 10;
 }
