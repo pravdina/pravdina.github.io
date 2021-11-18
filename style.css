@@ -2,6 +2,7 @@ html {
   font-size: 18px;
 }
 body {
+  /*background-color: gray;*/
   margin: 0;
   font-family: Roboto;
 }
@@ -30,13 +31,6 @@ body {
 /*Описание*/
 #description {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  padding: 4px;
-  width: 100%;
-}
-#description--up {
-  position: fixed;
   bottom: 98px;
   left: 0;
   padding: 4px;
@@ -59,35 +53,21 @@ body {
   line-height: normal;
 }
 /*Меню с опциями*/
-#menu_options {
-  padding: 0;
-}
-.mdl-menu__item {
-  padding-top: 8px;
-  padding-bottom: 8px;
-  width: 70vw;
-  white-space: normal;
-  height: auto;
-  line-height: 36px;
-  color: royalblue;
-}
-#menu_btn {
-  margin: 16px;
-}
+#menu_btn,
 #info_btn {
-  margin: 16px 0 16px 16px;
+  margin: 16px;
 }
 /*Панель контроля*/
 .control {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
   position: fixed;
   bottom: 0;
   left: 0;
   width: calc(100vw - 40px);
   background-color: white;
+  display: flex;
   padding: 4px 20px;
+  justify-content: space-between;
+  align-items: center;
   font-size: 1rem;
   z-index: 10;
 }
