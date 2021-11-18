@@ -60,18 +60,11 @@ body {
   width: 100%; 
   border: yellow;
   word-break: break-all;  */
-  width: 90vw;
+  width: 70vw;
   white-space: normal;
   height: auto;
   /* border: 1px solid red; */
-  color: yellowgreen; /* demo */
-}
-.custom-li {
-  color: deeppink;
-}
-.custom-li-2 {
-  color: greenyellow;
-  width: 100%;
+  /* color: yellowgreen; */
 }
 #menu_btn {
   margin: 16px;
