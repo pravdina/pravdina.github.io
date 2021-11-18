@@ -62,6 +62,9 @@ body {
   word-break: break-all;  */
   color: yellowgreen; /* demo */
 }
+.custom-li {
+  color: deeppink;
+}
 #menu_btn {
   margin: 16px;
 }
