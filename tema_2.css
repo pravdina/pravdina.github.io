@@ -65,6 +65,10 @@ body {
 .custom-li {
   color: deeppink;
 }
+.custom-li-2 {
+  color: greenyellow;
+  width: 100%;
+}
 #menu_btn {
   margin: 16px;
 }
