@@ -202,7 +202,12 @@ window.onload = () => {
   document
     .getElementById('menu_options')
     .addEventListener('click', (e) => handleLineChange(e));
+  // Раскладывание в 2д режим
   document
     .getElementById('to_2d_radio')
     .addEventListener('click', () => to2D());
+  // Собирание в 3д режим
+  document
+    .getElementById('to_3d_radio')
+    .addEventListener('click', () => to3D());
 };
