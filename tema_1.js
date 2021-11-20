@@ -145,7 +145,6 @@ const handleLineChange = (e) => {
     checkboxFakeCheck('model_checkbox');
     checkboxFakeCheck('lines_checkbox');
     mode3D = true;
-    // изменить радиобаттон!!!
   }
 };
 function check(a) {
@@ -203,4 +202,7 @@ window.onload = () => {
   document
     .getElementById('menu_options')
     .addEventListener('click', (e) => handleLineChange(e));
+  document
+    .getElementById('to_2d_radio')
+    .addEventListener('click', () => to2D());
 };
