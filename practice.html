@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<html>
-<link rel="stylesheet" type="text/css" href="togle.css">
-<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
-<!-- AR -->
-<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-<!-- Жесты -->
-<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
-
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Відображення практичних завдань з нарисної геометрії у доповненій реальності."
+    />
+    <title>Практичні завдання</title>
+<!-- СТИЛИ -->
 <!-- Material Design Lite -->
 <link rel="stylesheet" href="mdl/material.min.css">
-<script src="mdl/material.min.js"></script>
 <!-- Иконочный шрифт -->
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <!-- Цвет -->
@@ -20,7 +18,14 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 <!-- Кастомизация -->
 <link rel="stylesheet" type="text/css" href="style.css">
-
+<!-- СКРИПТЫ -->
+<script src="mdl/material.min.js"></script>
+<script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+<!-- AR -->
+<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+<!-- Жесты -->
+<script src="https://raw.githack.com/fcor/arjs-gestures/master/dist/gestures.js"></script>
 <!-- <script src="practiсe.js"></script> -->
 <script type="text/javascript">
   var path_before = "models/practice";
@@ -31,7 +36,6 @@
       .addEventListener("click", function () {
         var task_number = document.getElementById("task_number").value;
         var var_number = document.getElementById("var_number").value;
-        // alert(`${path_before}/task_${task_number}/var_${var_number}.glb`);
         document
           .getElementById("model")
           .setAttribute("gltf-model", `${path_before}/task_${task_number}/var_${var_number}.glb`);
