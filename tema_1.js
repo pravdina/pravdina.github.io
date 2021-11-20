@@ -147,7 +147,7 @@ const handleLineChange = (e) => {
     mode3D = true;
   }
 };
-function check(a) {
+const check = (a) => {
   if (document.getElementById(`${a}_checkbox`).checked) {
     document
       .getElementById(`${a}`)
@@ -158,9 +158,9 @@ function check(a) {
   } else {
     document.getElementById(`${a}`).removeAttribute('gltf-model');
   }
-}
+};
 
-function to2D() {
+const to2D = () => {
   // В 2D режим можно перейти, только если в данный момент включен 3D режим
   if (mode3D) {
     hideModel();
@@ -172,9 +172,9 @@ function to2D() {
     checkboxFakeUncheck('lines_checkbox');
     mode3D = false;
   }
-}
+};
 
-function to3D() {
+const to3D = () => {
   // В 3D режим можно перейти, только если в данный момент включен 2D режим, то есть mode3D=false
   if (!mode3D) {
     playAnimation('backward');
@@ -188,7 +188,7 @@ function to3D() {
     }, 5000);
     mode3D = true;
   }
-}
+};
 
 window.onload = () => {
   setTitle(currentTitle);
@@ -197,7 +197,8 @@ window.onload = () => {
   document
     .getElementById('home_btn')
     .addEventListener('click', () => {
-      window.location.href = 'index.html';
+      // eslint-disable-next-line no-restricted-globals
+      location.href = 'index.html';
     });
   // Показать/спрятать теоретический текст
   document
