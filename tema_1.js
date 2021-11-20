@@ -210,4 +210,11 @@ window.onload = () => {
   document
     .getElementById('to_3d_radio')
     .addEventListener('click', () => to3D());
+  // checkbox listeners
+  document
+    .getElementById('model_checkbox')
+    .addEventListener('change', () => check('model'));
+  document
+    .getElementById('lines_checkbox')
+    .addEventListener('change', () => check('lines'));
 };
