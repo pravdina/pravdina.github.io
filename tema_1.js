@@ -194,6 +194,11 @@ window.onload = () => {
   setTitle(currentTitle);
   setTheoryText(currentText);
   showAll();
+  document
+    .getElementById('home_btn')
+    .addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
