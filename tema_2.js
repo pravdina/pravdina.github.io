@@ -95,6 +95,12 @@ window.onload = () => {
   setTitle(currentTitle);
   setTheoryText(currentText);
   showModel();
+  document
+    .getElementById('home_btn')
+    .addEventListener('click', () => {
+      // eslint-disable-next-line no-restricted-globals
+      location.href = 'index.html';
+    });
   // Показать/спрятать теоретический текст
   document
     .getElementById('info_btn')
